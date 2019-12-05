@@ -73,11 +73,68 @@ BaselineR2(tail(trainRW_hourly$LastYear, -1),
 
 # We need to add sales yesterday and sales two days ago for the two term AR model
 # head(.., -2) says take all but the last two 
-salesTrainAR <- salesTrain %>%
-  mutate(SalesYesterday=c(NA, head(Sales, -1))) %>%
-  mutate(SalesTwoDaysAgo = c(NA, NA, head(Sales, -2)))
+trainAR_hourly <- train_hourly %>%
+  mutate(LastYear=c(NA, head(White, -1))) %>%
+  mutate(TwoYearsAgo = c(NA, NA, head(White, -2)))
+# Do the regression with one lag term
+mod2a <- lm(White~LastYear, data=trainAR_hourly)
+summary(mod2a)
+
+# 2-term autoregressive model 
+mod2b <- lm(White~LastYear+TwoYearsAgo, data=trainAR_hourly)
+summary(mod2b)
+# Plot with an additional red line for our predictions as before
+ggplot(trainAR_hourly, aes(x=Year, y=White)) +
+  geom_line() +
+  geom_point() +
+  geom_line(aes(y=predict(mod2b, newdata=trainAR_hourly)), col="red")
 
 
+## Trying Random Forest
+library(randomForest)
+set.seed(349)
+
+# Plug in all of the variables that we've created
+mod.rf <- randomForest(White ~ LastYear + TwoYearsAgo + Year, data = tail(trainAR_hourly, -2))
+ggplot(trainAR_hourly, aes(x=Year, y=White)) +
+  geom_line() +
+  geom_point() +
+  geom_line(aes(y=predict(mod.rf, newdata=trainAR_hourly)), col="green")
+
+# Both on the same plot:
+ggplot(trainAR_hourly, aes(x=Year, y=White)) +
+  geom_line() +
+  geom_point() +
+  geom_line(aes(y=predict(mod2b, newdata=trainAR_hourly)), col="red") +
+  geom_line(aes(y=predict(mod.rf, newdata=trainAR_hourly)), col="green")
+
+# Create Test Set
+test_hourly_final <- test_hourly %>%
+  mutate(LastYear=c(NA, head(White, -1))) %>%
+  mutate(TwoYearsAgo = c(NA, NA, head(White, -2)))
+
+# Test set prediction and OSR^2
+# Test-set prediction
+pred.test <- tail(predict(mod2b, newdata = test_hourly_final), -2)
+OSR2(pred.test, trainAR_hourly$White, tail(test_hourly_final$White, -2))
+
+pred.test.rf <- tail(predict(mod.rf, newdata = test_hourly_final), -2)
+OSR2(pred.test.rf, trainAR_hourly$White, tail(test_hourly_final$White, -2))
+
+##mod2b does slightly better in terms of OSR^2, but that might be because of limited data
+# we should test with a greater fraction in test set or go with random forest maybe?
+
+# Test set plots
+ggplot(test_hourly_final, aes(x=Year, y=White)) +
+  geom_line() +
+  geom_point() +
+  geom_line(aes(y=pred.test), col="red")
+
+ggplot(test_hourly_final, aes(x=Year, y=White)) +
+  geom_line() +
+  geom_point() +
+  geom_line(aes(y=pred.test), col="red") +
+  geom_line(aes(y=pred.test.rf), col="green")
 
 
 
