@@ -1,5 +1,5 @@
 ---
-title: "finalproj_modeling"
+title: "random-froest-modeling"
 author: "Dorothy Leung"
 date: "12/7/2019"
 output: html_document
@@ -30,7 +30,7 @@ head(suicides)
 ```
 
 ```{r}
-dim(suicide)
+dim(suicides)
 ```
 
 ```{r}
