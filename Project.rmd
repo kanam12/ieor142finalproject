@@ -1,0 +1,145 @@
+---
+title: "IEOR 142 FINAL PROJECT"
+author: '3033342158'
+date: "December 3, 2019"
+output: html_document
+---
+
+#FINAL PROJECT IEOR 142
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(softImpute)
+library(randomForest)
+library(ranger)
+library(dplyr)
+library(reshape2)
+library("caTools")
+library(ROCR)
+library(MASS)
+library(ggplot2)
+restore = list(repr.plot.width=8, repr.plot.height=3)
+PALETTE = c("#00A9FF", "#F8766D", "#7CAE00", "#C77CFF", "#CD9600", "#00BE67", "#FF61CC", "#00BFC4")
+theme.x_axis_only = theme(axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank(), panel.grid.major.y=element_blank(), panel.grid.minor.y=element_blank())
+theme.no_legend = theme(legend.position="none")
+theme.legend_title = theme(legend.title=element_text(size=7))
+```
+
+
+
+#EDA AND LOADING THE DATA
+```{r}
+data <- read.csv("../Documents/IEOR\ 142/Final\ Project/kaggle.csv")
+data.merged <- read.csv("../Documents/IEOR\ 142/Final\ Project/suicide_rates.csv")
+head(data)
+```
+
+There are 27820 observations in this dataset and 12 variables.
+```{r}
+nrow(data)
+ncol(data)
+```
+The data contains 32 unique years from 1985 to 2016
+```{r}
+unique(sort(data$year))
+length(unique(sort(data$year)))
+```
+There are 13910 males and 13910 females.
+There is also 4642 occurances of every age range provided in the data except for the range 5-14 years which has only 4610.
+```{r}
+table(data$sex)
+table(data$age) 
+```
+There are 744 observations correlating to the US and Japan, 372 per country.
+```{r}
+#Now let's explore the data corresponding to the US and Japan
+nrow(data.merged)
+head(data.merged)
+#length(data.merged$country == "United States") 
+#length(data.merged$country == "Japan")
+nrow(data.merged[data.merged$country == "United States",])
+nrow(data.merged[data.merged$country == "Japan",])
+data.merged[data.merged$country == "United States",]
+data.merged[data.merged$country == "Japan",]
+```
+
+```{r}
+ggplot(data.merged) + ggtitle("Suicide Number Per Year") + geom_line(aes(x= data.merged$year, y=data.merged$suicides_no)) +
+xlab("Year") + ylab("suicide #")
+
+```
+
+```{r}
+ggplot(data.merged) + ggtitle("Suicide Number Per age range") + geom_line(aes(x= data.merged$age, y=data.merged$suicides_no)) +
+xlab("Age Range") + ylab("suicide #")
+
+
+```
+
+```{r}
+ggplot(data.merged)  + ggtitle("Scatterplot of population vs suicide number") +
+geom_point(aes(x=data.merged$population, y=data.merged$suicides_no)) + xlab("population") + ylab("suicide")
+```
+
+```{r}
+ggplot(data.merged)  + ggtitle("Scatterplot of suicide number vs year") +
+geom_point(aes(x=data.merged$year, y=data.merged$suicides_no)) + xlab("year") + ylab("suicide number") 
+
+```
+There seems to be a correlation of  0.5216032 between the number of suicide and population and a correlation of 0.1021799 between suicide and gdp per capita. Thus the correlation between suicide and the population of a country is higher than suicide and gdp per capita.  
+```{r}
+cor(data.merged$suicides_no, data.merged$population)
+cor(data.merged$suicides_no, data.merged$gdp_per_capita....)
+```
+The below visualization shows suicide is much more common in males than females in the US.
+```{r}
+us.data <- data.merged[data.merged$country == "United States",]
+
+ggplot(us.data)  + ggtitle("suicide number per age for the US") +
+geom_col(aes(x=us.data$sex, y=us.data$suicides_no)) + xlab("Sex") + ylab("suicide number") 
+```
+
+For the most part, the data shows there has been a steady increase in the number of suicides in the US, with spiked increaing rates having started in the 2000's.
+```{r}
+ggplot(us.data)  + ggtitle("suicide trend over the years for the US") +
+geom_col(aes(x=us.data$year, y=us.data$suicides_no)) + xlab("Year") + ylab("suicide number") 
+
+```
+It the generation with the highest suicide numbers are in baby boomers generation in the US.
+
+```{r}
+ggplot(us.data)  + ggtitle("suicide trend over generations for the US") +
+geom_col(aes(x= us.data$generation, y= us.data$suicides_no)) + xlab("generation") + ylab("suicide number")
+```
+
+
+```{r}
+Japan.data <-  data.merged[data.merged$country == "Japan",]
+```
+For the most part, the data shows there has been a steady increase in the number of suicides in the Japan as well with a spiked increase having started around the year 1999, however there was a decline in most of the 1990's time period.
+
+```{r}
+ggplot(Japan.data)  + ggtitle("suicide trend over the years for the Japan") +
+geom_col(aes(x= Japan.data$year, y= Japan.data$suicides_no)) + xlab("Year") + ylab("suicide number") 
+
+```
+Suicide among males is also more common in Japan than in females.
+```{r}
+ggplot(Japan.data)  + ggtitle("suicide number per age for the Japan") +
+geom_col(aes(x=Japan.data$sex, y=Japan.data$suicides_no)) + xlab("Sex") + ylab("suicide number")
+```
+Boomers generation numbers for suicide are also high here, similar to the US but the Silent is the highest.
+```{r}
+ggplot(Japan.data)  + ggtitle("suicide trend over generations for the Japan") +
+geom_col(aes(x= Japan.data$generation, y= Japan.data$suicides_no)) + xlab("generation") + ylab("suicide number")
+
+```
+
+
+
+
+
+
+
