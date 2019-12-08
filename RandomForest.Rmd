@@ -1,0 +1,201 @@
+---
+title: "finalproj_modeling"
+author: "Dorothy Leung"
+date: "12/7/2019"
+output: html_document
+---
+
+Import Library
+```{r}
+library(dplyr) # data manipulation
+library(caTools) # splits
+library(ggplot2) # plot graph
+library(randomForest) # Random Forest
+library(rpart)
+library(caret)
+```
+
+```{r}
+OSR2 <- function(predictions, test, train) {
+  SSE <- sum((test - predictions)^2)
+  SST <- sum((test - mean(train))^2)
+  r2 <- 1 - SSE/SST
+  return(r2)
+}
+```
+
+```{r}
+suicides <- read.csv("suicide_rates_no_na.csv")
+head(suicides)
+```
+
+```{r}
+dim(suicide)
+```
+
+```{r}
+colnames(suicides)
+```
+
+```{r}
+suicides.us <- suicides %>% filter(country == "United States") %>% select(suicides.100k.pop, HDI.for.year, gdp_per_capita...., year, gdp_for_year...., sex)
+```
+
+```{r}
+suicides.jap <- suicides %>% filter(country == "Japan") %>% select(suicides.100k.pop, HDI.for.year, gdp_per_capita...., year, gdp_for_year...., sex)
+```
+
+```{r}
+suicides.us <- suicides.us %>% arrange(year)
+suicides.jap <- suicides.jap %>% arrange(year)
+```
+
+```{r}
+# checking nan values in the dataframe
+sapply(suicides.us, function(x)all(any(is.na(x))))
+sapply(suicides.jap, function(x)all(any(is.na(x))))
+```
+
+0.85 for us nan
+0.8025 for japan nan
+
+```{r}
+# suicdes.us <- suicides.us %>% replace(., is.na(.), 0.85)
+# suicides.jap <- suicides.jap %>% replace(., is.na(.), 0.8025)
+```
+
+Split Data
+```{r}
+set.seed(377)
+
+# US dataset
+us.train.ids <- sample(nrow(suicides.us), 0.70*nrow(suicides.us)) # 70/30 split
+us.train <- suicides.us[us.train.ids, ]
+us.test <- suicides.us[-us.train.ids, ]
+
+# Japan dataset
+jap.train.ids <- sample(nrow(suicides.jap), 0.70*nrow(suicides.jap)) # 70/30 split
+jap.train <- suicides.jap[jap.train.ids, ]
+jap.test <- suicides.jap[-jap.train.ids, ]
+```
+
+```{r}
+# ===== Random forest on US dataset =====
+set.seed(377)
+mod.rf.us <- randomForest(suicides.100k.pop ~ ., data = us.train, mtry = 5, nodesize = 5, ntree = 500)
+## mtry: Number of variables randomly sampled as candidates at each split. 
+## nodesize: Minimum size of terminal nodes. 
+## ntree: Number of trees to grow.
+```
+
+```{r}
+pred.rf.us <- predict(mod.rf.us, newdata = us.test) # just to illustrate
+pred.rf.us[1:5]
+```
+
+```{r}
+importance(mod.rf.us)
+```
+
+```{r}
+train.rf.us <- train(suicides.100k.pop ~ .,
+                     data = us.train,
+                     method = "rf",
+                     tuneGrid = data.frame(mtry=1:5),
+                     trControl = trainControl(method="cv", number=5, verboseIter = TRUE),
+                     metric = "RMSE")
+```
+
+```{r}
+train.rf.us$results
+```
+
+```{r}
+train.rf.us
+```
+
+```{r}
+best.rf.us <- train.rf.us$finalModel
+```
+
+```{r}
+us.test.oo = as.data.frame(model.matrix(suicides.100k.pop ~ . + 0, data = us.test)) 
+```
+
+```{r}
+pred.best.rf.us <- predict(best.rf.us, newdata = us.test.oo)
+pred.best.rf.us[1:5]
+```
+
+```{r}
+ggplot(train.rf.us$results, aes(x = mtry, y = Rsquared)) + geom_point(size = 3) + 
+  ylab("CV Rsquared") + theme_bw() + theme(axis.title=element_text(size=18), axis.text=element_text(size=18))
+```
+
+```{r}
+# ===== Random forest on Japan dataset =====
+set.seed(377)
+mod.rf.jap <- randomForest(suicides.100k.pop ~ ., data = jap.train, mtry = 5, nodesize = 5, ntree = 500)
+## mtry: Number of variables randomly sampled as candidates at each split. 
+## nodesize: Minimum size of terminal nodes. 
+## ntree: Number of trees to grow.
+```
+
+```{r}
+pred.rf.jap <- predict(mod.rf.jap, newdata = jap.test) # just to illustrate
+pred.rf.jap[1:5]
+```
+
+```{r}
+importance(mod.rf.jap)
+```
+
+```{r}
+train.rf.jap <- train(suicides.100k.pop ~ .,
+                      data = jap.train,
+                      method = "rf",
+                      tuneGrid = data.frame(mtry=1:5),
+                      trControl = trainControl(method="cv", number=5, verboseIter = TRUE),
+                      metric = "RMSE")
+```
+
+```{r}
+train.rf.jap$results
+```
+
+```{r}
+train.rf.jap
+```
+
+```{r}
+best.rf.jap <- train.rf.jap$finalModel
+```
+
+```{r}
+jap.test.oo = as.data.frame(model.matrix(suicides.100k.pop ~ . + 0, data = jap.test)) 
+```
+
+```{r}
+pred.best.rf.jap <- predict(best.rf.jap, newdata = jap.test.oo)
+pred.best.rf.jap[1:5]
+```
+
+```{r}
+ggplot(train.rf.jap$results, aes(x = mtry, y = Rsquared)) + geom_point(size = 3) + 
+  ylab("CV Rsquared") + theme_bw() + theme(axis.title=element_text(size=18), axis.text=element_text(size=18))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
