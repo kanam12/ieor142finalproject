@@ -16,7 +16,7 @@ library(caret)
 
 
 ```{r}
-suicide_rates <- read.csv("final/suicide_rates_no_na.csv")
+suicide_rates <- read.csv("suicide_rates_no_na.csv")
 head(suicide_rates)
 ```
 
@@ -51,6 +51,9 @@ train_us <- us[train.ids_us,]
 test_us <- us[-train.ids_us,]
 ```
 
+```{r}
+head(train_us)
+```
 
 
 ```{r}
@@ -74,24 +77,32 @@ us_train.cart = train(suicides.100k.pop ~ .,
                    data = train_us,
                    method = "rpart",
                    tuneGrid = data.frame(cp=seq(0, 0.1, 0.001)),
-                   trControl = trainControl(method="cv", number=5),
+                   trControl = trainControl(method="cv", number=10),
                    metric = "RMSE")
 us_train.cart$bestTune
+#us_train.cart$results
 ```
 
 ```{r}
-model_us_train <- rpart(suicides.100k.pop ~., data = train_us, method = "class", cp= 0.1)
+ggplot(us_train.cart$results, aes(x=cp, y=RMSE)) + geom_point()
+```
+
+```{r}
+mod.us <- us_train.cart$finalModel
+#prp(mod.us)
 ```
 
 
 ```{r}
-us_test.cart = as.data.frame(model.matrix(suicides.100k.pop~., data=test_us))
+us_test.cart = as.data.frame(model.matrix(suicides.100k.pop~.+0, data=test_us))
 
-predcart_us = predict(model_us_train, newdata=us_test.cart, type="class")
+predcart_us = predict(mod.us, newdata=us_test.cart)
 
-#cart.tab.us <- table(test_us$suicides.100k.pop, predcart_us)
+cart.tab.us <- table(test_us$suicides.100k.pop, predcart_us)
 
 ```
+
+
 
 ## CART on Japan
 ```{r}
@@ -119,7 +130,7 @@ model_japan <- japan_train.cart$finalModel
 japan_test.cart = as.data.frame(model.matrix(suicides.100k.pop~., data=test_japan))
 
 predcart_japan = predict(model_japan, newdata=japan_test.cart)
-predcart_japan[1:5]
 
-#cart.tab.japan <- table(test_japan$suicides.100k.pop, predcart_japan)
+cart.tab.japan <- table(test_japan$suicides.100k.pop, predcart_japan)
+cart.tab.japan
 ```
