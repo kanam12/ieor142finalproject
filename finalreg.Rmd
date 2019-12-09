@@ -91,7 +91,6 @@ predcart_us = predict(model_us_train, newdata=us_test.cart, type="class")
 
 #cart.tab.us <- table(test_us$suicides.100k.pop, predcart_us)
 
-RMSE(predcart_japan, test_japan$suicides.100k.pop)
 ```
 
 ## CART on Japan
@@ -108,15 +107,19 @@ japan_train.cart$bestTune
 ```
 
 ```{r}
-model_japan_train <- rpart(suicides.100k.pop ~., data = train_japan, method = "class", cp= 0.1)
+japan_train.cart$results
 ```
 
+```{r}
+model_japan <- japan_train.cart$finalModel
+```
 
 
 ```{r}
 japan_test.cart = as.data.frame(model.matrix(suicides.100k.pop~., data=test_japan))
 
-predcart_japan = predict(model_japan_train, newdata=japan_test.cart, type="class")
+predcart_japan = predict(model_japan, newdata=japan_test.cart)
+predcart_japan[1:5]
 
 #cart.tab.japan <- table(test_japan$suicides.100k.pop, predcart_japan)
 ```
