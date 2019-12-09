@@ -122,6 +122,11 @@ japan_train.cart$results
 ```
 
 ```{r}
+ggplot(japan_train.cart$results, aes(x=cp, y=RMSE)) + geom_point()
+```
+
+
+```{r}
 model_japan <- japan_train.cart$finalModel
 ```
 
