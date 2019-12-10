@@ -1,0 +1,141 @@
+---
+title: "final"
+author: '3032437864'
+date: "12/2/2019"
+output: html_document
+---
+```{r}
+library(dplyr) # data manipulation
+library(caTools) # splits
+library(ggplot2) # plot graph
+library(randomForest) # Random Forest
+library(rpart)
+library(rpart.plot)
+library(caret)
+```
+
+
+```{r}
+suicide_rates <- read.csv("suicide_rates_no_na.csv")
+head(suicide_rates)
+```
+
+```{r}
+suicide_rates$sex <- as.numeric(suicide_rates$sex)
+```
+
+
+
+```{r}
+us <- suicide_rates %>% filter(country == "United States") %>% select(suicides.100k.pop, HDI.for.year, gdp_per_capita...., year, gdp_for_year...., sex)
+us <- us %>% arrange(year)
+
+japan <- suicide_rates %>% filter(country == "Japan") %>% select(suicides.100k.pop, HDI.for.year, gdp_per_capita...., year, gdp_for_year...., sex)
+japan <- japan %>% arrange(year)
+```
+
+```{r}
+# fill NAN values
+us_nan <- (0.841 + 0.859)/2
+us_nan
+
+jap_nan <- (0.791 + 0.814)/2
+jap_nan
+```
+
+```{r}
+# split data for us 
+set.seed(377)
+train.ids_us = sample(nrow(us), 0.70*nrow(us))
+train_us <- us[train.ids_us,]
+test_us <- us[-train.ids_us,]
+```
+
+```{r}
+head(train_us)
+```
+
+
+```{r}
+# split data for japan
+set.seed(377)
+train.ids_j = sample(nrow(us), 0.70*nrow(japan))
+train_japan <- us[train.ids_j,]
+test_japan <- us[-train.ids_j,]
+```
+
+```{r}
+sum(is.na(train_us$HDI.for.year))
+```
+
+## CART on US
+```{r}
+# use cv to determine cp value
+set.seed(377)
+
+us_train.cart = train(suicides.100k.pop ~ .,
+                   data = train_us,
+                   method = "rpart",
+                   tuneGrid = data.frame(cp=seq(0, 0.1, 0.001)),
+                   trControl = trainControl(method="cv", number=10),
+                   metric = "RMSE")
+us_train.cart$bestTune
+#us_train.cart$results
+```
+
+```{r}
+ggplot(us_train.cart$results, aes(x=cp, y=RMSE)) + geom_point()
+```
+
+```{r}
+mod.us <- us_train.cart$finalModel
+#prp(mod.us)
+```
+
+
+```{r}
+us_test.cart = as.data.frame(model.matrix(suicides.100k.pop~.+0, data=test_us))
+
+predcart_us = predict(mod.us, newdata=us_test.cart)
+
+cart.tab.us <- table(test_us$suicides.100k.pop, predcart_us)
+
+```
+
+
+
+## CART on Japan
+```{r}
+set.seed(377)
+
+japan_train.cart = train(suicides.100k.pop ~ .,
+                   data = train_japan,
+                   method = "rpart",
+                   tuneGrid = data.frame(cp=seq(0, 0.1, 0.001)),
+                   trControl = trainControl(method="cv", number=5),
+                   metric = "RMSE")
+japan_train.cart$bestTune
+```
+
+```{r}
+japan_train.cart$results
+```
+
+```{r}
+ggplot(japan_train.cart$results, aes(x=cp, y=RMSE)) + geom_point()
+```
+
+
+```{r}
+model_japan <- japan_train.cart$finalModel
+```
+
+
+```{r}
+japan_test.cart = as.data.frame(model.matrix(suicides.100k.pop~., data=test_japan))
+
+predcart_japan = predict(model_japan, newdata=japan_test.cart)
+
+cart.tab.japan <- table(test_japan$suicides.100k.pop, predcart_japan)
+cart.tab.japan
+```
