@@ -181,7 +181,12 @@ data.merged[data.merged$suicides.100k.pop == max(data.merged$suicides.100k.pop),
 
 ```{r}
 #plot(data.merged[data.merged$suicides_no == max(data.merged$suicides_no), ])
-
+##correlation plot
+corr_data <- data.merged[,c("suicides_no", "population", "suicides.100k.pop", "HDI.for.year", "gdp_per_capita....", "gdp_for_year....")]
+corr_data <- round(cor(corr_data), 1)
+# corr_data <- data.merged %>% select(suicides_no, population, suicides.100k.pop, HDI.for.year, gdp_per_capita...., gdp_for_year....)
+ggcorrplot(corr_data) #, colors = c("blue", "yellow", "red")
+ggsave("correlation_plot.png", height = 7 , width = 5 * aspect_ratio)
 ```
 
 
