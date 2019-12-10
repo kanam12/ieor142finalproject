@@ -31,7 +31,7 @@ theme.legend_title = theme(legend.title=element_text(size=7))
 
 #EDA AND LOADING THE DATA
 ```{r}
-data <- read.csv("master.csv")
+data <- read.csv("kaggle.csv")
 data.merged <- read.csv("suicide_rates.csv")
 head(data)
 tail(data)
@@ -65,56 +65,67 @@ nrow(data.merged[data.merged$country == "Japan",])
 data.merged[data.merged$country == "United States",]
 data.merged[data.merged$country == "Japan",]
 ```
-This is not a very good visual here, since it is hard to interpret however it does seem clear that suicide has been steadily increasing across several countries as years go on.
+This is not a very good visual here, since it is hard to interpret however it does seem clear that suicide has been steadily decsreasing across several countries as years go on.
 ```{r}
-ggplot(data.merged) + ggtitle("Suicide Number Per Year") + geom_line(aes(x= data.merged$year, y=data.merged$suicides_no)) +
+ggplot(data.merged) + ggtitle("Suicide Rate Per Year") + geom_line(aes(x= data.merged$year, y=data.merged$suicides.100k.pop)) +
 xlab("Year") + ylab("suicide #")
 
 ```
 
 ```{r}
-ggplot(data.merged) + ggtitle("Suicide Number Per age range") + geom_line(aes(x= data.merged$age, y=data.merged$suicides_no)) +
+ggplot(data.merged) + ggtitle("Suicide Number Per age range") + geom_line(aes(x= data.merged$age, y=data.merged$suicides.100k.pop)) +
+xlab("Age Range") + ylab("suicide rate")
+
+
+```
+The age range that most suicides seem to occur is 75+ years of age.
+```{r}
+ggplot(data.merged) + ggtitle("Suicide Number Per age range") + geom_boxplot(aes(x= data.merged$age, y=data.merged$suicides.100k.pop)) +
 xlab("Age Range") + ylab("suicide #")
-
-
-```
-The age range that most suicides seem to occur is 35-54 years of age.
-```{r}
-ggplot(data.merged) + ggtitle("Suicide Number Per age range") + geom_boxplot(aes(x= data.merged$age, y=data.merged$suicides_no)) +
-xlab("Age Range") + ylab("suicide #")
-ggplot(data.merged) + ggtitle("Suicide Number Per age range") + geom_col(aes(x= data.merged$age, y=data.merged$suicides_no)) +
-xlab("Age Range") + ylab("suicide #")
+ggplot(data.merged) + ggtitle("Suicide Number Per age range") + geom_col(aes(x= data.merged$age, y=data.merged$suicides.100k.pop)) +
+xlab("Age Range") + ylab("suicide rate")
 
 ```
-The larger the population size the higher the suicide number also there seems to be a spike at population equal to about 1e+07. My theory is this may correspond to a specific region/ country.
+The smaller the population size the higher the suicide number.
 ```{r}
-ggplot(data.merged)  + ggtitle("Scatterplot of population vs suicide number") +
-geom_point(aes(x=data.merged$population, y=data.merged$suicides_no)) + xlab("population") + ylab("suicide")
+ggplot(data.merged)  + ggtitle("Population vs Suicide Rate (per 100K)") +
+geom_point(aes(x=data.merged$population, y=data.merged$suicides.100k.pop, color=country)) + xlab("population") + ylab("suicide rate")
 
-ggplot(data.merged)  + ggtitle("Scatterplot of population vs suicide number") +
-geom_area(aes(x=data.merged$population, y=data.merged$suicides_no)) + xlab("population") + ylab("suicide")
+ggplot(data.merged)  + ggtitle("population vs suicide rate") +
+geom_area(aes(x=data.merged$population, y=data.merged$suicides.100k.pop)) + xlab("population") + ylab("suicide rate")
 
 ```
 
 ```{r}
-ggplot(data.merged)  + ggtitle("Scatterplot of suicide number vs year") +
-geom_point(aes(x=data.merged$year, y=data.merged$suicides_no)) + xlab("year") + ylab("suicide number") 
+copy <- data.frame(data.merged)
+copy$age <- factor(copy$age, levels = c("5-14 years", "15-24 years","25-34 years","35-54 years","55-74 years","75+ years"))
+
+ggplot(copy)  + ggtitle("Suicide Rate by Year") +
+geom_line(aes(x=data.merged$year, y=data.merged$suicides.100k.pop, color=country)) + xlab("year") + ylab("suicide rate") + facet_wrap(vars(age, sex))
+aspect_ratio <- 2.5
+ggsave("suicide_rate_eda.png", height = 7 , width = 5 * aspect_ratio)
 
 ```
-There seems to be a correlation of  0.5216032 between the number of suicide and population and a correlation of 0.1021799 between suicide and gdp per capita. Thus the correlation between suicide and the population of a country is higher than suicide and gdp per capita.  
+There seems to be a negative correlation of  0.5216032 between the suicide rate and population and suicide rate and gdp per capita.
 ```{r}
-cor(data.merged$suicides_no, data.merged$population)
-cor(data.merged$suicides_no, data.merged$gdp_per_capita....)
+cor(data.merged$suicides.100k.pop, data.merged$population)
+cor(data.merged$suicides.100k.pop, data.merged$gdp_per_capita....)
 ```
 
 The Russian Federation has the highest recorded suicide number in the years that our data has, with 1994 being the year of occurance.
-The country with the lowest record is Albania(the data may be off for this since it is 0), Cyprus, Grenada and Antigua and Barbuda, and Iceland seem to all have very low suicude rates.
+The country with the lowest record is Albania(the data may be off for this since it is 0), Cyprus, Grenada and Antigua and Barbuda, and Iceland seem to all have very low suicude numbers.
+
+However for suicide rate in preportion to population size the highest recorded suicide rate occured in Aruba in 1995 (a 75+ male). Min is still Albania.
+
+
 ```{r}
-max(data$suicides_no)
-min(data$suicides_no)
-data[data$suicides_no == max(data$suicides_no), ]
-data[data$suicides_no == min(data$suicides_no) & data$year == "2016" , ] # Countires that have the lowest suicide numbers in recent years(2016) also checked 2015
-data[data$suicides_no == min(data$suicides_no) & data$year > "2013" , ]
+max(data$suicides.100k.pop)
+min(data$suicides.100k.pop)
+data[data$suicides.100k.pop == max(data$suicides.100k.pop), ]
+data[data$suicides.100k.pop == min(data$suicides.100k.pop), ]
+
+data[data$suicides.100k.pop == min(data$suicides.100k.pop) & data$year == "2016" , ] # Countires that have the lowest suicide numbers in recent years(2016) also checked 2015
+data[data$suicides.100k.pop == min(data$suicides.100k.pop) & data$year > "2013" , ]
 
 ```
 The below visualization shows suicide is much more common in males than females in the US.
@@ -122,56 +133,54 @@ The below visualization shows suicide is much more common in males than females 
 us.data <- data.merged[data.merged$country == "United States",]
 
 ggplot(us.data)  + ggtitle("suicide number per age for the US") +
-geom_col(aes(x=us.data$sex, y=us.data$suicides_no)) + xlab("Sex") + ylab("suicide number") 
+geom_col(aes(x=us.data$sex, y=us.data$suicides.100k.pop)) + xlab("Sex") + ylab("suicide number") 
 ```
 
-For the most part, the data shows there has been a steady increase in the number of suicides in the US, with spiked increaing rates having started in the 2000's.
+The data shows there was a decrease in the suicide rate from around the years 1999 to 2010 but since 2010 has been a steady increasing in the US.
 ```{r}
 ggplot(us.data)  + ggtitle("suicide trend over the years for the US") +
-geom_col(aes(x=us.data$year, y=us.data$suicides_no)) + xlab("Year") + ylab("suicide number") 
+geom_col(aes(x=us.data$year, y=us.data$suicides.100k.pop)) + xlab("Year") + ylab("suicide number") 
 
 ```
-It the generation with the highest suicide numbers are in baby boomers generation in the US.
+The generation with the highest suicide rate is Silent generation in the US.
 
 ```{r}
 ggplot(us.data)  + ggtitle("suicide trend over generations for the US") +
-geom_col(aes(x= us.data$generation, y= us.data$suicides_no)) + xlab("generation") + ylab("suicide number")
+geom_col(aes(x= us.data$generation, y= us.data$suicides.100k.pop)) + xlab("generation") + ylab("suicide number")
 ```
 
 
 ```{r}
 Japan.data <-  data.merged[data.merged$country == "Japan",]
 ```
-For the most part, the data shows there has been a steady increase in the number of suicides in the Japan as well with a spiked increase having started around the year 1999, however there was a decline in most of the 1990's time period.
+For the most part, the data shows there has been a steady decrease in the number of suicides in the Japan there was also a was a large decline in suicide rate for most of the 1990's time period.
 
 ```{r}
 ggplot(Japan.data)  + ggtitle("suicide trend over the years for the Japan") +
-geom_col(aes(x= Japan.data$year, y= Japan.data$suicides_no)) + xlab("Year") + ylab("suicide number") 
+geom_col(aes(x= Japan.data$year, y= Japan.data$suicides.100k.pop)) + xlab("Year") + ylab("suicide rate") 
 
 ```
 Suicide among males is also more common in Japan than in females.
 ```{r}
 ggplot(Japan.data)  + ggtitle("suicide number per age for the Japan") +
-geom_col(aes(x=Japan.data$sex, y=Japan.data$suicides_no)) + xlab("Sex") + ylab("suicide number")
+geom_col(aes(x=Japan.data$sex, y=Japan.data$suicides.100k.pop)) + xlab("Sex") + ylab("suicide number")
 ```
-Boomers generation numbers for suicide are also high here, similar to the US but the Silent is the highest.
+Similarly to the US, Japan's suicide rate is highest among the Silent generation.
 ```{r}
 ggplot(Japan.data)  + ggtitle("suicide trend over generations for the Japan") +
-geom_col(aes(x= Japan.data$generation, y= Japan.data$suicides_no)) + xlab("generation") + ylab("suicide number")
+geom_col(aes(x= Japan.data$generation, y= Japan.data$suicides.100k.pop)) + xlab("generation") + ylab("suicide number")
 ```
-
-
-The US has the highest suicide number recorded out of the two countries with the highest being 11767 in 2010.
+Japan has a highest recorded suicide rate out of Japan and the US given the years, occuring in 1986. 
 ```{r}
-data.merged[data.merged$suicides_no == min(data.merged$suicides_no), ]
-data.merged[data.merged$suicides_no == max(data.merged$suicides_no), ]
+data.merged[data.merged$suicides.100k.pop == min(data.merged$suicides.100k.pop), ]
+data.merged[data.merged$suicides.100k.pop == max(data.merged$suicides.100k.pop), ]
 
 ```
 
 
 
 ```{r}
-plot(data.merged[data.merged$suicides_no == max(data.merged$suicides_no), ])
+#plot(data.merged[data.merged$suicides_no == max(data.merged$suicides_no), ])
 
 ```
 
