@@ -1,0 +1,120 @@
+---
+title: "finalproj"
+author: '3032437864'
+date: "12/13/2019"
+output: html_document
+---
+
+```{r}
+library(dplyr) # data manipulation
+library(caTools) # splits
+library(ggplot2) # plot graph
+library(randomForest) # Random Forest
+library(rpart)
+library(rpart.plot)
+library(caret)
+library(lubridate)
+```
+
+```{r}
+us <- read.csv("us_suicides_merged.csv")
+us
+```
+
+```{r}
+suicide_us <- us %>%  select(year, sex, suicides_no, population, suicides.100k.pop, HDI.for.year, gdp_for_year...., gdp_per_capita...., generation, depression_percentage, drug_death_rate)
+```
+
+
+```{r}
+# split data for us 
+set.seed(377)
+train.ids_us = sample(nrow(us), 0.70*nrow(suicide_us))
+train_us <- suicide_us[train.ids_us,]
+test_us <- suicide_us[-train.ids_us,]
+```
+
+
+## CART
+```{r}
+set.seed(377)
+
+us_train.cart = train(suicides.100k.pop ~ .,
+                   data = train_us,
+                   method = "rpart",
+                   tuneGrid = data.frame(cp=seq(0, 0.1, 0.001)),
+                   trControl = trainControl(method="cv", number=10),
+                   metric = "RMSE")
+us_train.cart$bestTune
+```
+
+```{r}
+ggplot(us_train.cart$results, aes(x=cp, y=RMSE)) + geom_point()
+```
+
+```{r}
+us_test.cart = as.data.frame(model.matrix(suicides.100k.pop~.+0, data=test_us))
+
+predcart_us = predict(mod.us, newdata=us_test.cart)
+
+cart.tab.us <- table(test_us$suicides.100k.pop, predcart_us)
+
+```
+
+# Random Forest
+```{r}
+OSR2 <- function(predictions, test, train) {
+  SSE <- sum((test - predictions)^2)
+  SST <- sum((test - mean(train))^2)
+  r2 <- 1 - SSE/SST
+  return(r2)
+}
+```
+
+```{r}
+set.seed(377)
+mod.rf.us <- randomForest(suicides.100k.pop ~ ., data = us_train, mtry = 5, nodesize = 5, ntree = 500)
+```
+
+```{r}
+pred.rf.us <- predict(mod.rf.us, newdata = us_test) # just to illustrate
+pred.rf.us[1:5]
+```
+
+```{r}
+importance(mod.rf.us)
+```
+
+```{r}
+train.rf.us <- train(suicides.100k.pop ~ .,
+                     data = us.train,
+                     method = "rf",
+                     tuneGrid = data.frame(mtry=1:5),
+                     trControl = trainControl(method="cv", number=5, verboseIter = TRUE),
+                     metric = "RMSE")
+```
+
+```{r}
+train.rf.us$results
+```
+
+```{r}
+best.rf.us <- train.rf.us$finalModel
+```
+
+```{r}
+us.test.oo = as.data.frame(model.matrix(suicides.100k.pop ~ . + 0, data = us_test)) 
+```
+
+```{r}
+pred.best.rf.us <- predict(best.rf.us, newdata = us_test.oo)
+pred.best.rf.us[1:5]
+```
+
+```{r}
+ggplot(train.rf.us$results, aes(x = mtry, y = Rsquared)) + geom_point(size = 3) + 
+  ylab("CV Rsquared") + theme_bw() + theme(axis.title=element_text(size=18), axis.text=element_text(size=18))
+```
+
+
+
