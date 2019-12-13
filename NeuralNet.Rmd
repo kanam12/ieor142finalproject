@@ -1,0 +1,11 @@
+---
+title: "NeuralNet"
+author: '3032437864'
+date: "12/13/2019"
+output: html_document
+---
+
+# Neural Net
+```{r}
+
+```
