@@ -6,6 +6,139 @@ output: html_document
 ---
 
 # Neural Net
-```{r}
 
+```{r}
+library(dplyr)
+# use_python("r-keras")
+# use_python("/usr/local/bin/python3")
 ```
+
+```{r}
+OSR2 <- function(predictions, test, train) {
+  SSE <- sum((test - predictions)^2)
+  SST <- sum((test - mean(train))^2)
+  r2 <- 1 - SSE/SST
+  return(r2)
+}
+```
+
+```{r}
+suicides_merged <- read.csv("us_suicides_merged.csv")
+```
+
+```{r}
+us.suicides <- suicides_merged %>% select(year, sex, age, suicides_no, population, suicides.100k.pop, HDI.for.year, gdp_for_year...., gdp_per_capita...., generation)
+```
+
+```{r}
+set.seed(377)
+
+train.ids = sample(nrow(us.suicides), 0.7*nrow(us.suicides))
+train.sui = us.suicides[train.ids, ]
+test.sui = us.suicides[-train.ids, ]
+```
+
+```{r}
+# Prep for Keras
+trainX <- model.matrix(suicides.100k.pop ~ . , data = train.sui)
+trainX <- trainX[, 2:18]
+trainY <- train.sui$suicides.100k.pop
+
+testX <- model.matrix(suicides.100k.pop ~ . , data = test.sui)
+testX <- testX[, 2:18]
+testY <- test.sui$suicides.100k.pop
+```
+
+```{r}
+library(keras)
+use_python("/opt/local/bin/python")
+use_condaenv(condaenv = "r-keras", conda = "/opt/anaconda3/bin/conda")
+```
+
+```{r}
+# Single layer model
+nn_mod_1 <- keras_model_sequential()
+nn_mod_1 %>%
+  layer_dense(units = 15, activation = "sigmoid", input_shape = c(16)) %>%
+  layer_dense(units = 1)
+
+summary(nn_mod_1)
+```
+
+```{r}
+nn_mod_1 %>% compile(optimizer = "rmsprop",loss = "mse")
+
+nn_mod_1 %>% fit(trainX, trainY, epochs = 50, validation_split = 0.2)
+```
+
+```{r}
+# evaluate
+nn_pred <- predict(nn_mod_1, testX)
+OSR2(nn_pred, testY, trainY)
+```
+
+```{r}
+# Three hidden layer model
+nn_mod_2 <- keras_model_sequential() 
+nn_mod_2 %>%
+  layer_dense(units = 15, activation = "sigmoid", input_shape = c(16)) %>%
+  layer_dense(units = 15, activation = "sigmoid") %>%
+  layer_dense(units = 15, activation = "sigmoid") %>%
+  layer_dense(units = 1)
+
+summary(nn_mod_2)
+```
+
+```{r}
+nn_mod_2 %>% compile(optimizer = "rmsprop", loss = "mse")
+
+nn_mod_2 %>% fit(trainX, trainY, epochs = 50, validation_split = 0.2)
+```
+
+```{r}
+# evaluate
+nn_pred_2 <- predict(nn_mod_2, testX)
+OSR2(nn_pred_2, testY, trainY)
+```
+
+```{r}
+# 10 hidden layer model
+nn_mod_3 <- keras_model_sequential() 
+nn_mod_3 %>%
+  layer_dense(units = 15, activation = "sigmoid", input_shape = c(16)) %>%
+  layer_dense(units = 15, activation = "sigmoid") %>%
+  layer_dense(units = 15, activation = "sigmoid") %>%
+  layer_dense(units = 15, activation = "sigmoid") %>%
+  layer_dense(units = 15, activation = "sigmoid") %>%
+  layer_dense(units = 15, activation = "sigmoid") %>%
+  layer_dense(units = 15, activation = "sigmoid") %>%
+  layer_dense(units = 15, activation = "sigmoid") %>%
+  layer_dense(units = 15, activation = "sigmoid") %>%
+  layer_dense(units = 15, activation = "sigmoid") %>%
+  layer_dense(units = 1)
+summary(nn_mod_3)
+```
+
+```{r}
+nn_mod_3 %>% compile(optimizer = "rmsprop",loss = "mse")
+
+nn_mod_3 %>% fit(trainX, trainY, epochs = 50, validation_split = 0.2)
+```
+
+```{r}
+# evaluate
+nn_pred_3 <- predict(nn_mod_3, testX)
+OSR2(nn_pred_3, testY, trainY)
+
+# if your model is worse than using the mean value, the r squared value that you calculate will be negative.
+```
+
+
+
+
+
+
+
+
+
+
