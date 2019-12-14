@@ -139,3 +139,8 @@ predcart_japan = predict(model_japan, newdata=japan_test.cart)
 cart.tab.japan <- table(test_japan$suicides.100k.pop, predcart_japan)
 cart.tab.japan
 ```
+
+```{r}
+
+```
+
