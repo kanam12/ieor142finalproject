@@ -34,7 +34,7 @@ BaselineR2 <- function(predictions, truth, baseline) {
 
 ```{r}
 # Load data and check it out
-us_ts = read.csv("us_suicides_merged.csv")
+us_ts = read.csv("us_suicides_merged_no_na.csv")
 str(us_ts)
 ```
 
@@ -175,6 +175,13 @@ ggplot(test_ts_final, aes(x=year, y=suicides.100k.pop)) +
   geom_line(aes(y=pred.test), col="red") +
   geom_line(aes(y=pred.test.rf), col="green")
 ```
+
+
+```{r}
+library(keras)
+nn_mod_1 <- keras_model_sequential()
+```
+
 
 
 
