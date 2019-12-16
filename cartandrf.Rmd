@@ -67,6 +67,7 @@ us_test.cart = as.data.frame(model.matrix(suicides.100k.pop~. + 0, data=test_us)
 predcart_us = predict(mod.us_cart, newdata=us_test.cart)
 
 cart.tab.us <- table(test_us$suicides.100k.pop, predcart_us)
+cart.tab.us
 ```
 
 # Random Forest
