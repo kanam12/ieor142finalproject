@@ -17,7 +17,7 @@ library(lubridate)
 ```
 
 ```{r}
-us <- read.csv("us_suicides_merged.csv")
+us <- read.csv("us_suicides_merged_no_na.csv")
 us
 ```
 
@@ -45,7 +45,7 @@ us_train.cart = train(suicides.100k.pop ~ .,
                    tuneGrid = data.frame(cp=seq(0, 0.1, 0.001)),
                    trControl = trainControl(method="cv", number=10),
                    metric = "RMSE")
-us_train.cart$bestTune
+mod.us <- us_train.cart$bestTune
 ```
 
 ```{r}
@@ -73,11 +73,11 @@ OSR2 <- function(predictions, test, train) {
 
 ```{r}
 set.seed(377)
-mod.rf.us <- randomForest(suicides.100k.pop ~ ., data = us_train, mtry = 5, nodesize = 5, ntree = 500)
+mod.rf.us <- randomForest(suicides.100k.pop ~ ., data = train_us, mtry = 5, nodesize = 5, ntree = 500)
 ```
 
 ```{r}
-pred.rf.us <- predict(mod.rf.us, newdata = us_test) # just to illustrate
+pred.rf.us <- predict(mod.rf.us, newdata = test_us) # just to illustrate
 pred.rf.us[1:5]
 ```
 
@@ -87,7 +87,7 @@ importance(mod.rf.us)
 
 ```{r}
 train.rf.us <- train(suicides.100k.pop ~ .,
-                     data = us.train,
+                     data = train_us,
                      method = "rf",
                      tuneGrid = data.frame(mtry=1:5),
                      trControl = trainControl(method="cv", number=5, verboseIter = TRUE),
@@ -103,7 +103,7 @@ best.rf.us <- train.rf.us$finalModel
 ```
 
 ```{r}
-us.test.oo = as.data.frame(model.matrix(suicides.100k.pop ~ . + 0, data = us_test)) 
+us.test.oo = as.data.frame(model.matrix(suicides.100k.pop ~ . + 0, data = test_us)) 
 ```
 
 ```{r}
