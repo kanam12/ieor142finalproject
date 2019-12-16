@@ -22,7 +22,7 @@ us
 ```
 
 ```{r}
-suicide_us <- us %>%  select(year, sex, suicides_no, population, suicides.100k.pop, HDI.for.year, gdp_for_year...., gdp_per_capita...., generation, depression_percentage, drug_death_rate)
+suicide_us <- us %>%  select(year, sex, suicides_no, population, suicides.100k.pop, HDI.for.year, gdp_for_year...., gdp_per_capita...., generation, depression_percentage, drug_death_rate) 
 ```
 
 
@@ -39,26 +39,34 @@ test_us <- suicide_us[-train.ids_us,]
 ```{r}
 set.seed(377)
 
+
 us_train.cart = train(suicides.100k.pop ~ .,
                    data = train_us,
                    method = "rpart",
                    tuneGrid = data.frame(cp=seq(0, 0.1, 0.001)),
                    trControl = trainControl(method="cv", number=10),
                    metric = "RMSE")
-mod.us <- us_train.cart$bestTune
+us_train.cart$bestTune
 ```
 
 ```{r}
-ggplot(us_train.cart$results, aes(x=cp, y=RMSE)) + geom_point()
+ggplot(us_train.cart$results, aes(x=cp, y=RMSE)) + geom_point() 
+```
+```{r}
+us_train.cart$results
 ```
 
 ```{r}
-us_test.cart = as.data.frame(model.matrix(suicides.100k.pop~.+0, data=test_us))
+mod.us_cart <- us_train.cart$finalModel
+```
 
-predcart_us = predict(mod.us, newdata=us_test.cart)
+
+```{r}
+us_test.cart = as.data.frame(model.matrix(suicides.100k.pop~. + 0, data=test_us))
+
+predcart_us = predict(mod.us_cart, newdata=us_test.cart)
 
 cart.tab.us <- table(test_us$suicides.100k.pop, predcart_us)
-
 ```
 
 # Random Forest
@@ -76,9 +84,9 @@ set.seed(377)
 mod.rf.us <- randomForest(suicides.100k.pop ~ ., data = train_us, mtry = 5, nodesize = 5, ntree = 500)
 ```
 
-```{r}
+```{r} 
 pred.rf.us <- predict(mod.rf.us, newdata = test_us) # just to illustrate
-pred.rf.us[1:5]
+pred.rf.us[1:5] 
 ```
 
 ```{r}
@@ -91,7 +99,7 @@ train.rf.us <- train(suicides.100k.pop ~ .,
                      method = "rf",
                      tuneGrid = data.frame(mtry=1:5),
                      trControl = trainControl(method="cv", number=5, verboseIter = TRUE),
-                     metric = "RMSE")
+                     metric = "RMSE") 
 ```
 
 ```{r}
@@ -99,7 +107,7 @@ train.rf.us$results
 ```
 
 ```{r}
-best.rf.us <- train.rf.us$finalModel
+best.rf.us <- train.rf.us$finalModel 
 ```
 
 ```{r}
@@ -107,7 +115,7 @@ us.test.oo = as.data.frame(model.matrix(suicides.100k.pop ~ . + 0, data = test_u
 ```
 
 ```{r}
-pred.best.rf.us <- predict(best.rf.us, newdata = us_test.oo)
+pred.best.rf.us <- predict(best.rf.us, newdata = us.test.oo)
 pred.best.rf.us[1:5]
 ```
 
