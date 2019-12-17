@@ -97,8 +97,8 @@ BaselineR2(tail(trainRW_ts$LastYear, -1),
 # We need to add sales yesterday and sales two days ago for the two term AR model
 # head(.., -2) says take all but the last two 
 trainAR_ts <- train_ts %>%
-  mutate(LastYear=c(NA, head(suicides.100k.pop, -1))) %>%
-  mutate(TwoYearsAgo = c(NA, NA, head(suicides.100k.pop, -2)))
+  mutate(LastYear=c(0, head(suicides.100k.pop, -1))) %>%
+  mutate(TwoYearsAgo = c(0, 0, head(suicides.100k.pop, -2)))
 # Do the regression with one lag term
 mod2a <- lm(suicides.100k.pop~LastYear, data=trainAR_ts)
 summary(mod2a)
@@ -127,7 +127,6 @@ ggplot(trainAR_ts, aes(x=year, y=suicides.100k.pop)) +
   geom_line() +
   geom_point() +
   geom_line(aes(y=predict(mod.rf, newdata=trainAR_ts)), col="green")
-
 ```
 
 ```{r}
@@ -143,23 +142,22 @@ ggplot(trainAR_ts, aes(x=year, y=suicides.100k.pop)) +
 ```{r}
 # Create Test Set
 test_ts_final <- test_ts %>%
-  mutate(LastYear=c(NA, head(suicides.100k.pop, -1))) %>%
-  mutate(TwoYearsAgo = c(NA, NA, head(suicides.100k.pop, -2)))
+  mutate(LastYear=c(0, head(suicides.100k.pop, -1))) %>%
+  mutate(TwoYearsAgo = c(0, 0, head(suicides.100k.pop, -2)))
 
 ```
 
 ```{r}
 # Test set prediction and OSR^2
 # Test-set prediction
-pred.test <- tail(predict(mod2b, newdata = test_ts_final), -2)
-OSR2(pred.test, trainAR_ts$suicides.100k.pop, tail(test_ts_final$suicides.100k.pop, -2))
+pred.test <- predict(mod2b, newdata = test_ts_final)
+OSR2(pred.test, trainAR_ts$suicides.100k.pop, test_ts_final$suicides.100k.pop)
 
-pred.test.rf <- tail(predict(mod.rf, newdata = test_ts_final), -2)
-OSR2(pred.test.rf, trainAR_ts$suicides.100k.pop, tail(test_ts_final$suicides.100k.pop, -2))
+pred.test.rf <- predict(mod.rf, newdata = test_ts_final)
+OSR2(pred.test.rf, trainAR_ts$suicides.100k.pop, test_ts_final$suicides.100k.pop)
 
 ```
 
-##mod2b does slightly better in terms of OSR^2, but that might be because of limited data
 ```{r}
 # we should test with a greater fraction in test set or go with random forest maybe?
 
@@ -177,10 +175,6 @@ ggplot(test_ts_final, aes(x=year, y=suicides.100k.pop)) +
 ```
 
 
-```{r}
-library(keras)
-nn_mod_1 <- keras_model_sequential()
-```
 
 
 
