@@ -66,7 +66,7 @@ ggplot(trainLM_ts, aes(x=year, y=age)) +
 
 ###### Random Walk model training data 
 ```{r}
-trainRW_ts <- train_ts %>% mutate(LastYear = c(NA, head(suicides.100k.pop, -1)))
+trainRW_ts <- train_ts %>% mutate(LastYear = c(0, head(suicides.100k.pop, -1)))
 head(trainRW_ts)
 #random walk aka moving average
 ```
