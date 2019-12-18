@@ -52,7 +52,7 @@ testY <- test.sui$suicides.100k.pop
 ```{r}
 library(keras)
 use_python("/opt/local/bin/python")
-use_condaenv(condaenv = "r-keras", conda = "/opt/anaconda3/bin/conda")
+use_condaenv(condaenv = "r-keras", conda = "/Users/kanamishra/anaconda3/bin/conda")
 ```
 
 ```{r}
