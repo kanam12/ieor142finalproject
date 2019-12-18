@@ -1,0 +1,137 @@
+---
+title: "Baseline and Regression Models"
+author: "Fanice M. Nyatigo"
+date: "12/07/2019"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, output = F, message = FALSE}
+# load necessary packages
+
+library(readr)
+library(dplyr)
+library(GGally)
+library(ggplot2)
+library(car)
+```
+
+```{r}
+us <- read_csv("https://raw.githubusercontent.com/kanam12/ieor142finalproject/master/us_suicides_merged_no_na.csv", col_types = "cdffdddfdddfdd")
+#names(suicides)[9] <- "suicides_rate"
+
+suicides <- us %>%  select(-age, - `country-year`, -country)
+
+set.seed(377)
+
+
+train.ids = sample(nrow(suicides), 0.70*nrow(suicides))
+train = suicides[train.ids,]
+test = suicides[-train.ids,]
+```
+
+## Baseline Model
+```{r}
+base_mod <- mean(suicides$`suicides/100k pop`)
+
+#******HOW TO CALCULATE r2 for baseline model. 
+```
+
+
+## Linear Regression
+```{r}
+set.seed(377)
+
+exp_mod <- lm(`suicides/100k pop` ~ ., data = train)
+
+summary(exp_mod)
+
+vif(exp_mod) #- perfect multicolinearity 
+
+#alias(exp_mod)
+```
+
+```{r}
+lin_mod <- lm(`suicides/100k pop` ~ .-`gdp_per_capita ($)`, data = train)
+
+summary(lin_mod)
+
+vif(lin_mod)
+```
+```{r}
+lin_mod2 <- lm(`suicides/100k pop` ~ .-`gdp_per_capita ($)` - year, data = train)
+
+summary(lin_mod2)
+
+vif(lin_mod2)
+
+```
+```{r}
+lin_mod3 <- lm(`suicides/100k pop` ~ .-`gdp_per_capita ($)` - year -sex, data = train)
+
+summary(lin_mod3)
+
+vif(lin_mod3)
+```
+
+```{r}
+# remove varibles that are not significant
+
+lin_mod4 <- lm(`suicides/100k pop` ~ .-`gdp_for_year ($)` - `gdp_per_capita ($)` - year - sex, data = train)
+
+summary(lin_mod4)
+
+vif(lin_mod4)
+```
+
+```{r}
+# lin_mod5 <- lm(`suicides/100k pop` ~ .-`gdp_for_year ($)`-`HDI for year`-`gdp_per_capita ($)`-year -sex,
+#                                          data = train)
+# 
+# summary(lin_mod5)
+# 
+# vif(lin_mod5)
+```
+
+--------------
+```{r}
+# OSR-sqaured of newest seasonal model
+base_predictions <- rep(base_mod, nrow(test))
+
+base_SSE = sum((test$`suicides/100k pop` - base_predictions)^2)
+base_SST = sum((test$`suicides/100k pop` - mean(train$`suicides/100k pop`))^2)
+base_OSR2 = 1 - base_SSE/base_SST
+
+# this builds a vector of predicted values on the test set
+lin_predictions <- predict(lin_mod4, newdata = test)
+
+lin_SSE = sum((test$`suicides/100k pop` - lin_predictions)^2)
+lin_SST = sum((test$`suicides/100k pop` - mean(train$`suicides/100k pop`))^2)
+lin_OSR2 = 1 - lin_SSE/lin_SST
+
+#####----------- need to compare change in OSR2
+
+exp_predictions <- predict(exp_mod, newdata = test)
+
+exp_SSE = sum((test$`suicides/100k pop` - exp_predictions)^2)
+exp_SST = sum((test$`suicides/100k pop` - mean(train$`suicides/100k pop`))^2)
+exp_OSR2 = 1 - exp_SSE/exp_SST
+# # OSR-sqaured of the initial exploratory model
+# exp_predictions <- predict(mod_exp, newdata = wrangler_test)
+# 
+# exp_SSE = sum((wrangler_test$WranglerSales - exp_predictions)^2)
+# exp_SST = sum((wrangler_test$WranglerSales - mean(wrangler_train$WranglerSales))^2)
+# exp_OSR2 = 1 - exp_SSE/exp_SST
+
+# compare change in R-squared and OSR-squared between the two models
+rsq <- function (x, y) cor(x, y) ^ 2
+
+R2 <- c("exp_R2" = summary(exp_mod)$r.squared, "lin_R2" = summary(lin_mod)$r.squared)
+R2
+
+OSR2 <- c("base_OSR2" = base_OSR2, "exp_OSR2" = exp_OSR2, "lin_OSR2" = lin_OSR2)
+OSR2
+```
+

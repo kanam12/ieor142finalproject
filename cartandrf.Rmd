@@ -22,20 +22,41 @@ us
 ```
 
 ```{r}
-suicide_us <- us %>%  select(year, sex, suicides_no, population, suicides.100k.pop, HDI.for.year, gdp_for_year...., gdp_per_capita...., generation, depression_percentage, drug_death_rate) 
+suicide_us <- us %>%  dplyr::select(year, sex, suicides_no, population, suicides.100k.pop, HDI.for.year, gdp_for_year...., gdp_per_capita...., generation, depression_percentage, drug_death_rate) 
+```
+
+```{r}
+suicide_us$year <- as.factor(suicide_us$year)
+```
+
+```{r}
+suicide_us
 ```
 
 
 ```{r}
 # split data for us 
 set.seed(377)
-train.ids_us = sample(nrow(us), 0.70*nrow(suicide_us))
+train.ids_us = sample(nrow(suicide_us), 0.70*nrow(suicide_us))
 train_us <- suicide_us[train.ids_us,]
 test_us <- suicide_us[-train.ids_us,]
 ```
 
+```{r}
+train_us
+```
+
 
 ## CART
+
+
+```{r}
+# set.seed(377)
+
+# fitcart <- rpart(suicides.100k.pop ~ ., data = train_us)
+
+```
+
 ```{r}
 set.seed(377)
 
@@ -45,13 +66,14 @@ us_train.cart = train(suicides.100k.pop ~ .,
                    method = "rpart",
                    tuneGrid = data.frame(cp=seq(0, 0.1, 0.001)),
                    trControl = trainControl(method="cv", number=10),
-                   metric = "RMSE")
+                   metric = "RMSE") 
 us_train.cart$bestTune
 ```
 
 ```{r}
 ggplot(us_train.cart$results, aes(x=cp, y=RMSE)) + geom_point() 
 ```
+
 ```{r}
 us_train.cart$results
 ```
@@ -62,10 +84,10 @@ mod.us_cart <- us_train.cart$finalModel
 
 
 ```{r}
-us_test.cart = as.data.frame(model.matrix(suicides.100k.pop~. + 0, data=test_us))
+us_test.cart = as.data.frame(model.matrix(suicides.100k.pop~., data=test_us))
 
 predcart_us = predict(mod.us_cart, newdata=us_test.cart)
-
+#predcart_us$results
 cart.tab.us <- table(test_us$suicides.100k.pop, predcart_us)
 cart.tab.us
 ```
@@ -95,10 +117,11 @@ importance(mod.rf.us)
 ```
 
 ```{r}
+set.seed(377)
 train.rf.us <- train(suicides.100k.pop ~ .,
                      data = train_us,
                      method = "rf",
-                     tuneGrid = data.frame(mtry=1:5),
+                     tuneGrid = data.frame(mtry=1:10),
                      trControl = trainControl(method="cv", number=5, verboseIter = TRUE),
                      metric = "RMSE") 
 ```
