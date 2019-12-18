@@ -24,6 +24,9 @@ us <- read_csv("https://raw.githubusercontent.com/kanam12/ieor142finalproject/ma
 
 suicides <- us %>%  select(-age, - `country-year`, -country)
 
+set.seed(377)
+
+
 train.ids = sample(nrow(suicides), 0.70*nrow(suicides))
 train = suicides[train.ids,]
 test = suicides[-train.ids,]
@@ -39,6 +42,8 @@ base_mod <- mean(suicides$`suicides/100k pop`)
 
 ## Linear Regression
 ```{r}
+set.seed(377)
+
 exp_mod <- lm(`suicides/100k pop` ~ ., data = train)
 
 summary(exp_mod)
@@ -56,8 +61,7 @@ summary(lin_mod)
 vif(lin_mod)
 ```
 ```{r}
-lin_mod2 <- lm(`suicides/100k pop` ~ .-`gdp_per_capita ($)` - year,
-                                         data = train)
+lin_mod2 <- lm(`suicides/100k pop` ~ .-`gdp_per_capita ($)` - year, data = train)
 
 summary(lin_mod2)
 
@@ -65,8 +69,7 @@ vif(lin_mod2)
 
 ```
 ```{r}
-lin_mod3 <- lm(`suicides/100k pop` ~ .-`gdp_per_capita ($)` - year -sex,
-                                         data = train)
+lin_mod3 <- lm(`suicides/100k pop` ~ .-`gdp_per_capita ($)` - year -sex, data = train)
 
 summary(lin_mod3)
 
@@ -76,8 +79,7 @@ vif(lin_mod3)
 ```{r}
 # remove varibles that are not significant
 
-lin_mod4 <- lm(`suicides/100k pop` ~ .-`HDI for year`-`gdp_per_capita ($)`-year -sex,
-                                         data = train)
+lin_mod4 <- lm(`suicides/100k pop` ~ .-`gdp_for_year ($)` - `gdp_per_capita ($)` - year - sex, data = train)
 
 summary(lin_mod4)
 
@@ -85,12 +87,12 @@ vif(lin_mod4)
 ```
 
 ```{r}
-lin_mod5 <- lm(`suicides/100k pop` ~ .-`gdp_for_year ($)`-`HDI for year`-`gdp_per_capita ($)`-year -sex,
-                                         data = train)
-
-summary(lin_mod5)
-
-vif(lin_mod5)
+# lin_mod5 <- lm(`suicides/100k pop` ~ .-`gdp_for_year ($)`-`HDI for year`-`gdp_per_capita ($)`-year -sex,
+#                                          data = train)
+# 
+# summary(lin_mod5)
+# 
+# vif(lin_mod5)
 ```
 
 --------------
@@ -103,7 +105,7 @@ base_SST = sum((test$`suicides/100k pop` - mean(train$`suicides/100k pop`))^2)
 base_OSR2 = 1 - base_SSE/base_SST
 
 # this builds a vector of predicted values on the test set
-lin_predictions <- predict(lin_mod, newdata = test)
+lin_predictions <- predict(lin_mod4, newdata = test)
 
 lin_SSE = sum((test$`suicides/100k pop` - lin_predictions)^2)
 lin_SST = sum((test$`suicides/100k pop` - mean(train$`suicides/100k pop`))^2)
