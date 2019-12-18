@@ -95,6 +95,7 @@ importance(mod.rf.us)
 ```
 
 ```{r}
+set.seed(377)
 train.rf.us <- train(suicides.100k.pop ~ .,
                      data = train_us,
                      method = "rf",
