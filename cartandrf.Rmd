@@ -149,4 +149,3 @@ ggplot(train.rf.us$results, aes(x = mtry, y = Rsquared)) + geom_point(size = 3) 
 ```
 
 
-
