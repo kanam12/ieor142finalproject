@@ -17,22 +17,26 @@ library(lubridate)
 ```
 
 ```{r}
+OSR2 <- function(predictions, test, train) {
+  SSE <- sum((test - predictions)^2)
+  SST <- sum((test - mean(train))^2)
+  r2 <- 1 - SSE/SST
+  return(r2)
+}
+```
+
+```{r}
 us <- read.csv("us_suicides_merged_no_na.csv")
 us
 ```
 
 ```{r}
-suicide_us <- us %>%  dplyr::select(year, sex, suicides_no, population, suicides.100k.pop, HDI.for.year, gdp_for_year...., gdp_per_capita...., generation, depression_percentage, drug_death_rate) 
+suicide_us <- us %>%  select(year, sex, suicides_no, population, suicides.100k.pop, HDI.for.year, gdp_for_year...., gdp_per_capita...., generation, depression_percentage, drug_death_rate) 
 ```
 
 ```{r}
 suicide_us$year <- as.factor(suicide_us$year)
 ```
-
-```{r}
-suicide_us
-```
-
 
 ```{r}
 # split data for us 
@@ -42,20 +46,7 @@ train_us <- suicide_us[train.ids_us,]
 test_us <- suicide_us[-train.ids_us,]
 ```
 
-```{r}
-train_us
-```
-
-
 ## CART
-
-
-```{r}
-# set.seed(377)
-
-# fitcart <- rpart(suicides.100k.pop ~ ., data = train_us)
-
-```
 
 ```{r}
 set.seed(377)
@@ -84,7 +75,7 @@ mod.us_cart <- us_train.cart$finalModel
 
 
 ```{r}
-us_test.cart = as.data.frame(model.matrix(suicides.100k.pop~., data=test_us))
+us_test.cart = as.data.frame(model.matrix(suicides.100k.pop ~ . + 0, data=test_us))
 
 predcart_us = predict(mod.us_cart, newdata=us_test.cart)
 #predcart_us$results
@@ -92,18 +83,17 @@ cart.tab.us <- table(test_us$suicides.100k.pop, predcart_us)
 cart.tab.us
 ```
 
-# Random Forest
 ```{r}
-OSR2 <- function(predictions, test, train) {
-  SSE <- sum((test - predictions)^2)
-  SST <- sum((test - mean(train))^2)
-  r2 <- 1 - SSE/SST
-  return(r2)
-}
+print("CART OSR2:")
+OSR2(predcart_us, test_us$suicides.100k.pop, train_us$suicides.100k.pop)
 ```
+
+
+# Random Forest
 
 ```{r}
 set.seed(377)
+
 mod.rf.us <- randomForest(suicides.100k.pop ~ ., data = train_us, mtry = 5, nodesize = 5, ntree = 500)
 ```
 
@@ -121,7 +111,7 @@ set.seed(377)
 train.rf.us <- train(suicides.100k.pop ~ .,
                      data = train_us,
                      method = "rf",
-                     tuneGrid = data.frame(mtry=1:10),
+                     tuneGrid = data.frame(mtry=1:5),
                      trControl = trainControl(method="cv", number=5, verboseIter = TRUE),
                      metric = "RMSE") 
 ```
@@ -135,17 +125,54 @@ best.rf.us <- train.rf.us$finalModel
 ```
 
 ```{r}
-us.test.oo = as.data.frame(model.matrix(suicides.100k.pop ~ . + 0, data = test_us)) 
+us.test_rf = as.data.frame(model.matrix(suicides.100k.pop ~ . + 0, data = test_us)) 
 ```
 
 ```{r}
-pred.best.rf.us <- predict(best.rf.us, newdata = us.test.oo)
-pred.best.rf.us[1:5]
+pred.best.rf_us <- predict(best.rf.us, newdata = us.test_rf)
+pred.best.rf_us[1:5]
+```
+
+```{r}
+print("Random Forests OSR2:")
+OSR2(pred.best.rf_us, test_us$suicides.100k.pop, train_us$suicides.100k.pop)
 ```
 
 ```{r}
 ggplot(train.rf.us$results, aes(x = mtry, y = Rsquared)) + geom_point(size = 3) + 
   ylab("CV Rsquared") + theme_bw() + theme(axis.title=element_text(size=18), axis.text=element_text(size=18))
 ```
+
+## mtry = 10
+```{r}
+set.seed(377)
+train.rf.us_mtryTen <- train(suicides.100k.pop ~ .,
+                             data = train_us,
+                             method = "rf",
+                             tuneGrid = data.frame(mtry=1:10),
+                             trControl = trainControl(method="cv", number=5, verboseIter = TRUE),
+                             metric = "RMSE") 
+```
+
+```{r}
+train.rf.us_mtryTen$results
+```
+
+```{r}
+best.rf.us_mtryTen <- train.rf.us_mtryTen$finalModel 
+```
+
+```{r}
+pred.best.rf_us_mtryTen <- predict(best.rf.us_mtryTen, newdata = us.test_rf)
+pred.best.rf_us_mtryTen[1:5]
+```
+
+```{r}
+print("Random Forests OSR2:")
+OSR2(pred.best.rf_us_mtryTen, test_us$suicides.100k.pop, train_us$suicides.100k.pop)
+```
+
+
+
 
 
