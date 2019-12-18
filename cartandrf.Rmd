@@ -14,6 +14,7 @@ library(rpart)
 library(rpart.plot)
 library(caret)
 library(lubridate)
+library(gbm)
 ```
 
 ```{r}
@@ -172,7 +173,44 @@ print("Random Forests OSR2:")
 OSR2(pred.best.rf_us_mtryTen, test_us$suicides.100k.pop, train_us$suicides.100k.pop)
 ```
 
+### Boosting
+```{r}
+mod.boost <- gbm(suicides.100k.pop ~ .,
+                 data = train_us,
+                 distribution = "gaussian",
+                 n.trees = 1000,
+                 shrinkage = 0.001,
+                 interaction.depth = 2)
+summary(mod.boost)
+```
 
+```{r}
+pred.boost <- predict(mod.boost, newdata = test_us, n.trees=1000)
+```
 
+```{r}
+test_us_mm = as.data.frame(model.matrix(CTR ~ . + 0, data = train.ctr)) 
+tGrid = expand.grid(n.trees = (1:75)*500, interaction.depth = c(1,2,4,6,8,10), shrinkage = 0.001, n.minobsinnode = 10)
 
+set.seed(377)
+train.boost <- train(suicides.100k.pop ~ .,
+                     data = train_us,
+                     method = "gbm",
+                     tuneGrid = tGrid,
+                     trControl = trainControl(method="cv", number=5, verboseIter = TRUE),
+                     metric = "RMSE",
+                     distribution = "gaussian")
+train.boost
+best.boost <- train.boost$finalModel
+pred.best.boost <- predict(best.boost, newdata = test_us_mm, n.trees = 11500) # can use same model matrix
 
+ggplot(train.boost$results, aes(x = n.trees, y = Rsquared, colour = as.factor(interaction.depth))) + geom_line() + 
+  ylab("CV Rsquared") + theme_bw() + theme(axis.title=element_text(size=18), axis.text=element_text(size=18)) + 
+  scale_color_discrete(name = "interaction.depth")
+
+```
+
+```{r}
+OSR2(pred.best.boost, test_us$suicides.100k.pop, train_us$suicides.100k.pop)
+sum(abs(test_us$suicides.100k.pop - pred.best.boost))/nrow(test_us_mm)
+```
