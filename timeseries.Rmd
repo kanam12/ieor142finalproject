@@ -1,8 +1,7 @@
 ---
 title: "timeseries"
-author: '3032437864'
 date: "12/13/2019"
-output: html_document
+output: pdf_document
 ---
 
 ```{r}
@@ -66,8 +65,8 @@ ggplot(trainLM_ts, aes(x=year, y=age)) +
 
 ###### Random Walk model training data 
 ```{r}
-trainRW_ts <- train_ts %>% mutate(LastYear = c(NA, head(suicides.100k.pop, -1)))
-head(trainRW_ts)
+trainRW_ts <- train_ts %>% mutate(LastYear = c(rep(NA, 12), head(suicides.100k.pop, -12)))
+head(trainRW_ts, 15)
 #random walk aka moving average
 ```
 
@@ -86,8 +85,8 @@ table(abs(trainRW_ts$suicides.100k.pop-trainRW_ts$LastYear) >= 1)
 # Note that we need to remove the first observation since there is no
 # prediction. This is achieved using tail(.., -1) which says to take all but
 # the first observation.
-BaselineR2(tail(trainRW_ts$LastYear, -1), 
-           tail(trainRW_ts$suicides.100k.pop, -1),
+BaselineR2(tail(trainRW_ts$LastYear, -12), 
+           tail(trainRW_ts$suicides.100k.pop, -12),
            mean(trainRW_ts$suicides.100k.pop))
 ```
 
@@ -97,8 +96,8 @@ BaselineR2(tail(trainRW_ts$LastYear, -1),
 # We need to add sales yesterday and sales two days ago for the two term AR model
 # head(.., -2) says take all but the last two 
 trainAR_ts <- train_ts %>%
-  mutate(LastYear=c(0, head(suicides.100k.pop, -1))) %>%
-  mutate(TwoYearsAgo = c(0, 0, head(suicides.100k.pop, -2)))
+  mutate(LastYear=c(rep(NA, 12), head(suicides.100k.pop, -12))) %>%
+  mutate(TwoYearsAgo = c(rep(NA, 24), head(suicides.100k.pop, -24)))
 # Do the regression with one lag term
 mod2a <- lm(suicides.100k.pop~LastYear, data=trainAR_ts)
 summary(mod2a)
@@ -122,7 +121,7 @@ set.seed(349)
 
 ```{r}
 # Plug in all of the variables that we've created
-mod.rf <- randomForest(suicides.100k.pop ~ LastYear + TwoYearsAgo + year, data = tail(trainAR_ts, -2))
+mod.rf <- randomForest(suicides.100k.pop ~ LastYear + TwoYearsAgo + year, data = tail(trainAR_ts, -24))
 ggplot(trainAR_ts, aes(x=year, y=suicides.100k.pop)) +
   geom_line() +
   geom_point() +
@@ -142,8 +141,8 @@ ggplot(trainAR_ts, aes(x=year, y=suicides.100k.pop)) +
 ```{r}
 # Create Test Set
 test_ts_final <- test_ts %>%
-  mutate(LastYear=c(0, head(suicides.100k.pop, -1))) %>%
-  mutate(TwoYearsAgo = c(0, 0, head(suicides.100k.pop, -2)))
+  mutate(LastYear=c(rep(NA, 12), head(suicides.100k.pop, -12))) %>%
+  mutate(TwoYearsAgo = c(rep(NA, 24), head(suicides.100k.pop, -24)))
 
 ```
 
@@ -151,10 +150,10 @@ test_ts_final <- test_ts %>%
 # Test set prediction and OSR^2
 # Test-set prediction
 pred.test <- predict(mod2b, newdata = test_ts_final)
-OSR2(pred.test, trainAR_ts$suicides.100k.pop, test_ts_final$suicides.100k.pop)
+OSR2(tail(pred.test, -24), trainAR_ts$suicides.100k.pop, tail(test_ts_final$suicides.100k.pop, -24))
 
 pred.test.rf <- predict(mod.rf, newdata = test_ts_final)
-OSR2(pred.test.rf, trainAR_ts$suicides.100k.pop, test_ts_final$suicides.100k.pop)
+OSR2(tail(pred.test.rf, -24), trainAR_ts$suicides.100k.pop, tail(test_ts_final$suicides.100k.pop, -24))
 
 ```
 
