@@ -22,7 +22,15 @@ us
 ```
 
 ```{r}
-suicide_us <- us %>%  select(year, sex, suicides_no, population, suicides.100k.pop, HDI.for.year, gdp_for_year...., gdp_per_capita...., generation, depression_percentage, drug_death_rate) 
+suicide_us <- us %>%  dplyr::select(year, sex, suicides_no, population, suicides.100k.pop, HDI.for.year, gdp_for_year...., gdp_per_capita...., generation, depression_percentage, drug_death_rate) 
+```
+
+```{r}
+suicide_us$year <- as.factor(suicide_us$year)
+```
+
+```{r}
+head(suicide_us)
 ```
 
 
@@ -52,6 +60,7 @@ us_train.cart$bestTune
 ```{r}
 ggplot(us_train.cart$results, aes(x=cp, y=RMSE)) + geom_point() 
 ```
+
 ```{r}
 us_train.cart$results
 ```
@@ -67,7 +76,6 @@ us_test.cart = as.data.frame(model.matrix(suicides.100k.pop~. + 0, data=test_us)
 predcart_us = predict(mod.us_cart, newdata=us_test.cart)
 
 cart.tab.us <- table(test_us$suicides.100k.pop, predcart_us)
-cart.tab.us
 ```
 
 # Random Forest
@@ -99,7 +107,7 @@ set.seed(377)
 train.rf.us <- train(suicides.100k.pop ~ .,
                      data = train_us,
                      method = "rf",
-                     tuneGrid = data.frame(mtry=1:5),
+                     tuneGrid = data.frame(mtry=1:10),
                      trControl = trainControl(method="cv", number=5, verboseIter = TRUE),
                      metric = "RMSE") 
 ```
