@@ -190,28 +190,56 @@ OSR2(pred.boost, test_us$suicides.100k.pop, train_us$suicides.100k.pop)
 ```
 
 ```{r}
-test_us_mm = as.data.frame(model.matrix(suicides.100k.pop ~ . + 0, data = train_us)) 
-tGrid = expand.grid(n.trees = (1:75)*500, interaction.depth = c(1,2,4,6,8,10), shrinkage = 0.001, n.minobsinnode = 10)
+## took a while to run -- not super amazing OSR^2
+# test_us_mm = as.data.frame(model.matrix(suicides.100k.pop ~ . + 0, data = test_us)) 
+# 
+# gbmGrid <-  expand.grid(interaction.depth = c(1,2,4,6,8,10), 
+#                         n.trees = (1:75)*500, 
+#                         shrinkage = 0.001,
+#                         n.minobsinnode = 10)
+# fitControl <- trainControl(## 10-fold CV
+#                            method = "repeatedcv",
+#                            number = 5,
+#                            ## repeated ten times
+#                            repeats = 5)
+# set.seed(377)
+# gbmFit2 <- train(suicides.100k.pop ~ ., data = train_us, 
+#                  method = "gbm", 
+#                  trControl = fitControl, 
+#                  verbose = FALSE, 
+#                  tuneGrid = gbmGrid)
+# 
+# gbm.best <- gbmFit2$finalModel
+# gbm.pred.best.boost <- predict(gbm.best, newdata = test_us_mm, n.trees = 11500)
+# OSR2(gbm.pred.best.boost, test_us$suicides.100k.pop, train_us$suicides.100k.pop)
+```
 
-set.seed(377)
-train.boost <- train(suicides.100k.pop ~ .,
-                     data = train_us,
-                     method = "gbm",
-                     tuneGrid = tGrid,
-                     trControl = trainControl(method="cv", number=5, verboseIter = TRUE),
-                     metric = "RMSE",
-                     distribution = "gaussian")
-train.boost
-best.boost <- train.boost$finalModel
-pred.best.boost <- predict(best.boost, newdata = test_us_mm, n.trees = 11500) # can use same model matrix
-
-ggplot(train.boost$results, aes(x = n.trees, y = Rsquared, colour = as.factor(interaction.depth))) + geom_line() + 
-  ylab("CV Rsquared") + theme_bw() + theme(axis.title=element_text(size=18), axis.text=element_text(size=18)) + 
-  scale_color_discrete(name = "interaction.depth")
+```{r}
+## same results as above
+# tGrid = expand.grid(n.trees = 1000, interaction.depth = 2, shrinkage = 0.001, n.minobsinnode = 10)tGrid = expand.grid(n.trees = 1000, interaction.depth = 2, shrinkage = 0.001, n.minobsinnode = 10)
+# 
+# set.seed(377)
+# train.boost <- train(suicides.100k.pop ~ .,
+#                      data = train_us,
+#                      method = "gbm",
+#                      tuneGrid = tGrid,
+#                      trControl = trainControl(method="cv", number=5,
+#                                               verboseIter = FALSE),
+#                      metric = "RMSE",
+#                      distribution = "gaussian", 
+#                      verbose = FALSE)
+# train.boost
+# best.boost <- train.boost$finalModel
+# pred.best.boost <- predict(best.boost, newdata = test_us_mm, n.trees = 11500) # can use same model matrix
+# 
+# ggplot(train.boost$results, aes(x = n.trees, y = Rsquared, colour = as.factor(interaction.depth))) + geom_line() + 
+#   ylab("CV Rsquared") + theme_bw() + theme(axis.title=element_text(size=18), axis.text=element_text(size=18)) + 
+#   scale_color_discrete(name = "interaction.depth")
 
 ```
 
 ```{r}
-OSR2(pred.best.boost, test_us$suicides.100k.pop, train_us$suicides.100k.pop)
-sum(abs(test_us$suicides.100k.pop - pred.best.boost))/nrow(test_us_mm)
+# OSR2(pred.best.boost, test_us$suicides.100k.pop, train_us$suicides.100k.pop)
+# #Out-of-sample MAE:
+# sum(abs(test_us$suicides.100k.pop - pred.best.boost))/nrow(test_us_mm)
 ```
