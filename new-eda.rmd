@@ -1,25 +1,23 @@
 ---
 title: "EDA IEOR 142, Final Project"
-author: '3033342158'
 date: "December 16, 2019"
-output: html_document
+output: pdf_document
 ---
 
 ```{r}
-#install.packages("Rcpp")
-#install.packages("purrr")
-#install.packages("dplyr")
-
 library(softImpute)
 library(gridExtra, verbose=FALSE, warn.conflicts=FALSE, quietly=TRUE)
 library(randomForest)
 library(ranger)
 library(dplyr)
 library(reshape2)
-library("caTools")
+library(caTools)
 library(ROCR)
 library(MASS)
 library(ggplot2)
+```
+
+```{r}
 restore = list(repr.plot.width=8, repr.plot.height=3)
 PALETTE = c("#00A9FF", "#F8766D", "#7CAE00", "#C77CFF", "#CD9600", "#00BE67", "#FF61CC", "#00BFC4")
 theme.x_axis_only = theme(axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank(), panel.grid.major.y=element_blank(), panel.grid.minor.y=element_blank())
@@ -67,6 +65,7 @@ max(table(data$generation))
 ggplot(data)  + ggtitle("suicide trend over years for the US") +
 geom_col(aes(x=data$year, y=data$suicides.100k.pop)) + xlab("Year") + ylab("suicide number") 
 ```
+
 ```{r}
 p1 = ggplot(data)  + ggtitle("suicide number per age for the US") +
 geom_col(aes(x=data$sex, y=data$suicides.100k.pop)) + xlab("Sex") + ylab("suicide number") 
@@ -198,6 +197,18 @@ ggplot(data) + ylab("") + ggtitle("Lineplot, of Depression Rate, and Drug Death 
      geom_line(aes(x=data$suicides.100k.pop, y= data$drug_death_rate, lty="Solid", color = "Drug Death")) +
      #geom_line(aes(x=data$suicides.100k.pop, y= data$population, lty="x9", color = "Population")) +
      scale_linetype_manual(values=c("solid","longdash")) + xlab("Suicide Rate")
+```
 
+```{r}
+temp_male <- data %>% filter(sex=="male")
+temp_male$age <- factor(temp_male$age, levels = c("5-14 years", "15-24 years", "25-34 years", "35-54 years", "55-74 years", "75+ years"))
+ggplot(data=temp_male) + geom_line(aes(x = year, y = suicides.100k.pop, group=age, color=age)) + xlab("Year") +ggtitle("Male Suicide Rates over Time by Age") + ylab("Suicide Rate")
+ggsave("male_trend.png")
+```
 
+```{r}
+temp_female <- data %>% filter(sex=="female")
+temp_female$age <- factor(temp_female$age, levels = c("5-14 years", "15-24 years", "25-34 years", "35-54 years", "55-74 years", "75+ years"))
+ggplot(data = temp_female) + geom_line(aes(x = year, y = suicides.100k.pop, group=age, color=age)) + xlab("Year") +ggtitle("Female Suicide Rates over Time by Age") + ylab("Suicide Rate")
+ggsave("female_trend.png")
 ```
