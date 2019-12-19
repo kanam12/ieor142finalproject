@@ -75,6 +75,8 @@ p2= ggplot(data, aes(x=data$year, y=data$suicides.100k.pop, fill=data$sex), xlab
    geom_bar(stat="identity", width=1, position = "dodge")  
 grid.arrange(p1, p2, nrow=2, ncol = 1.2)
 
+ggplot(data) + geom_col(aes(x=year, y=suicides.100k.pop, width=0.7, fill=factor(sex, levels=c("male", "female")))) + ggtitle("Suicide Rate by Gender") + xlab("Year") + ylab("Suicide Rate") +  scale_fill_manual(values = c("#00A9FF", "#F8766D"), name = "Gender")
+
 ```
 
 
