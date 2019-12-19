@@ -1,0 +1,203 @@
+---
+title: "EDA IEOR 142, Final Project"
+author: '3033342158'
+date: "December 16, 2019"
+output: html_document
+---
+
+```{r}
+#install.packages("Rcpp")
+#install.packages("purrr")
+#install.packages("dplyr")
+
+library(softImpute)
+library(gridExtra, verbose=FALSE, warn.conflicts=FALSE, quietly=TRUE)
+library(randomForest)
+library(ranger)
+library(dplyr)
+library(reshape2)
+library("caTools")
+library(ROCR)
+library(MASS)
+library(ggplot2)
+restore = list(repr.plot.width=8, repr.plot.height=3)
+PALETTE = c("#00A9FF", "#F8766D", "#7CAE00", "#C77CFF", "#CD9600", "#00BE67", "#FF61CC", "#00BFC4")
+theme.x_axis_only = theme(axis.title.y=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank(), panel.grid.major.y=element_blank(), panel.grid.minor.y=element_blank())
+theme.no_legend = theme(legend.position="none")
+theme.legend_title = theme(legend.title=element_text(size=7))
+data <- read.csv("us_suicides_merged_no_na.csv")
+```
+
+#EDA
+
+Our cleaned and merged data consists of 372 observations and 14 variables.
+```{r}
+nrow(data)
+ncol(data)
+```
+
+```{r}
+#First look at the first 6 and last 6 observations of our data
+head(data)
+tail(data)
+```
+The dataset contains 31 unique years from 1985 to 2015, the suicide rate per 100k has a variance of 175.0296.
+```{r}
+unique(sort(data$year))
+length(unique(sort(data$year)))
+var(data$suicides.100k.pop)
+#table(data$suicides.100k.pop) / length(data$suicides.100k.pop)) # relative frequencies
+as.numeric(names(table(data$suicides.100k.pop))[table(data$suicides.100k.pop) == max(table(data$suicides.100k.pop))]) # mode for suicide rate
+as.numeric(names(table(data$gdp_per_capita....))[table(data$gdp_per_capita....) == max(table(data$gdp_per_capita....))]) # mode for gdp per capita
+```
+
+```{r}
+range(data$suicides.100k.pop)
+data[data$suicides.100k.pop == min(data$suicides.100k.pop), ]
+data[data$suicides.100k.pop == max(data$suicides.100k.pop), ]
+```
+###Investigating Suicide rate and Sex
+There are 186 males and 186 females.
+There is also 62 records for every age range provided in the data. The data seems to be split evenly thus far except for the  generation variable.Generation X has the highest amount of records and Generation Z has the least. The Suicide rate had a decline from about the late 1990's to the mid 2000's but has been steadily increasing since around the year 2008.
+```{r}
+table(data$sex)
+table(data$age) 
+table(data$generation)
+max(table(data$generation))
+ggplot(data)  + ggtitle("suicide trend over years for the US") +
+geom_col(aes(x=data$year, y=data$suicides.100k.pop)) + xlab("Year") + ylab("suicide number") 
+```
+```{r}
+p1 = ggplot(data)  + ggtitle("suicide number per age for the US") +
+geom_col(aes(x=data$sex, y=data$suicides.100k.pop)) + xlab("Sex") + ylab("suicide number") 
+
+
+p2= ggplot(data, aes(x=data$year, y=data$suicides.100k.pop, fill=data$sex), xlab("Year"), ylab("Suicide Rate")) +
+   geom_bar(stat="identity", width=1, position = "dodge")  
+grid.arrange(p1, p2, nrow=2, ncol = 1.2)
+
+```
+
+
+###Investigating Suicide rate and Age
+
+Suicide rates are highest among indivduals in the age group 75+( This is mostly people considered to be from the G.I. generation(1901-1924) and Silent generation(1925-1945)) and the lowest rates occur in the age group 5-14(generation X and generation Z).
+```{r}
+p3 = ggplot(data) + ggtitle("Boxplot of Suicide Rate Per age range") + geom_boxplot(aes(x= data$age, y=data$suicides.100k.pop, fill = data$generation)) +
+xlab("Age Range") + ylab("suicide rate")
+
+p4 = ggplot(data) + ggtitle("Stacked, Suicide Rate Per age range") + geom_col(aes(x= data$age, y=data$suicides.100k.pop, fill = data$generation)) +
+xlab("Age Range") + ylab("suicide rate")
+grid.arrange(p3, p4, nrow=2, ncol = 1.1)
+```
+
+```{r}
+ggplot(data)  + ggtitle("Suicide trend over generations, US") +
+geom_col(aes(x= data$generation, y= data$suicides.100k.pop, fill=data$age), position="stack") + xlab("Generation") + ylab("Suicide Rate")
+```
+
+
+###Investigating Suicide rate and Population
+```{r}
+p5 = ggplot(data)  + ggtitle("Density Plot of population vs suicide rate") +
+geom_density_2d(aes(x=data$population, y=data$suicides.100k.pop)) + xlab("population") + ylab("suicide rate")
+
+p6 = ggplot(data)  + ggtitle("Area plot of population vs suicide rate") +
+geom_area(aes(x=data$population, y=data$suicides.100k.pop)) + xlab("population") + ylab("suicide rate")
+
+grid.arrange(p5, p6, nrow=2, ncol = 1.1)
+
+
+```
+
+```{r}
+var(data$population)
+cor(data$suicides.100k.pop, data$population)
+summary(data$population)
+cor(data$population, data$depression_percentage)
+cor(data$population, data$drug_death_rate)
+```
+```{r}
+ggplot(data) + geom_line(aes(x = data$population, y = data$drug_death_rate)) + xlab("Population") +ggtitle("Scatterplot Drug Death Rate VS Population") + ylab("Drug Death Rate")
+```
+```{r}
+ggplot(data) + geom_line(aes(x = data$population, y = data$depression_percentage)) + xlab("Population") +ggtitle("Scatterplot Depression Rate VS Population") + ylab("Depression Rate")
+```
+###Investigating Suicide rate and HDI for year
+
+```{r}
+var(data$HDI.for.year) #Very low variance for HDI year to year
+cor(data$suicides.100k.pop, data$HDI.for.year) #Barley negatively correlated
+cor(data$population, data$HDI.for.year)
+cor(data$gdp_per_capita...., data$HDI.for.year)#Sanity check: has a positive correlation
+cor(data$depression_percentage, data$HDI.for.year) 
+cor(data$drug_death_rate, data$HDI.for.year) # correlation: 0.4429688 somewhat positivley correlated
+summary(data$HDI.for.year)
+as.numeric(names(table(data$HDI.for.year))[table(data$HDI.for.year) == max(table(data$HDI.for.year))]) # mode for HDI
+```
+
+```{r}
+ggplot(data)  + ggtitle("HDI for year vs suicide rate") +
+geom_jitter(aes(x=data$HDI.for.year, y=data$suicides.100k.pop)) + xlab("HDI yearly") + ylab("suicide rate")
+```
+###Investigating Suicide rate and GDP per capita
+
+```{r}
+ggplot(data)  + ggtitle("GDP per capita vs suicide rate") +
+geom_line(aes(x=data$gdp_per_capita...., y=data$suicides.100k.pop, color = "gdp per capitia")) + 
+xlab("GDP per capita") + ylab("suicide rate") + scale_color_manual(values=PALETTE[1:3])
+```
+
+
+```{r}
+var(data$suicides.100k.pop, data$gdp_per_capita....)
+cor(data$suicides.100k.pop, data$gdp_per_capita....)
+summary(data$suicides.100k.pop, data$gdp_per_capita....)
+```
+```{r}
+ggplot(data) + ylab("") + xlab("Suicide Rate")+ ggtitle("Lineplot, GDP and HDI vs Suicide Rate coded by color") +
+      geom_line(aes(x=data$suicides.100k.pop, y= data$HDI.for.year, color = "HDI for year")) +
+     geom_line(aes(x=data$suicides.100k.pop, y= data$gdp_per_capita...., color = "GDP Per Capita")) 
+
+```
+
+###Investigating Suicide rate and the drug death rate
+
+```{r}
+ggplot(data)+ geom_line(aes(x= data$drug_death_rate, y= data$suicides.100k.pop, color = "Drug Death Rate")) +
+ylab("Suicide Rate") + xlab("Drug Death Rate")
+```
+
+
+
+```{r}
+var(data$suicides.100k.pop, data$drug_death_rate)
+cor(data$suicides.100k.pop, data$drug_death_rate)
+cor(data$population, data$drug_death_rate)
+cov(data$suicides.100k.pop, data$drug_death_rate)
+summary(data$drug_death_rate)
+```
+###Investigating Suicide rate and the Depression Percentage
+
+```{r}
+ggplot(data)+ geom_line(aes(x= data$depression_percentage, y= data$suicides.100k.pop, color = "Depression Rate")) +
+ylab("Suicide Rate") + xlab("Depression Percentage") + scale_color_manual(values=PALETTE[6])
+```
+Drug death rate and depression rate are slightly negitively correlated as well as suicide rates and drepression percentages.
+```{r}
+var(data$suicides.100k.pop, data$depression_percentage)
+cor(data$suicides.100k.pop, data$depression_percentage)
+cor(data$depression_percentage, data$drug_death_rate) 
+cov(data$suicides.100k.pop, data$depression_percentage)
+summary(data$depression_percentage)
+```
+
+```{r}
+ggplot(data) + ylab("") + ggtitle("Lineplot, of Depression Rate, and Drug Death Rate v.s Suicide Rate") +
+     geom_line(aes(x= data$suicides.100k.pop, y= data$depression_percentage, lty="Dashed", color = "Depression")) +
+     geom_line(aes(x=data$suicides.100k.pop, y= data$drug_death_rate, lty="Solid", color = "Drug Death")) +
+     #geom_line(aes(x=data$suicides.100k.pop, y= data$population, lty="x9", color = "Population")) +
+     scale_linetype_manual(values=c("solid","longdash")) + xlab("Suicide Rate")
+
+
+```
