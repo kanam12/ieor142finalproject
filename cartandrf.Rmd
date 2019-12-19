@@ -186,10 +186,11 @@ summary(mod.boost)
 
 ```{r}
 pred.boost <- predict(mod.boost, newdata = test_us, n.trees=1000)
+OSR2(pred.boost, test_us$suicides.100k.pop, train_us$suicides.100k.pop)
 ```
 
 ```{r}
-test_us_mm = as.data.frame(model.matrix(CTR ~ . + 0, data = train.ctr)) 
+test_us_mm = as.data.frame(model.matrix(suicides.100k.pop ~ . + 0, data = train_us)) 
 tGrid = expand.grid(n.trees = (1:75)*500, interaction.depth = c(1,2,4,6,8,10), shrinkage = 0.001, n.minobsinnode = 10)
 
 set.seed(377)
