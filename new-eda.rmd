@@ -111,6 +111,18 @@ grid.arrange(p5, p6, nrow=2, ncol = 1.1)
 
 ```
 
+``` {r}
+ggplot(data) + ggtitle("Population vs Suicide Rate") +
+geom_point(aes(x=population, y=suicides.100k.pop, color=year)) + xlab("Population") + ylab("Suicide Rate")
+ggsave("population_suicide_rate.png")
+```
+
+``` {r}
+#experiment with density plot 
+ggplot(data)  + ggtitle("Density Plot of population vs suicide rate") +
+geom_density_2d(aes(x=data$population, y=data$suicides.100k.pop, color=year)) + xlab("population") + ylab("suicide rate")
+```
+
 ```{r}
 var(data$population)
 cor(data$suicides.100k.pop, data$population)
