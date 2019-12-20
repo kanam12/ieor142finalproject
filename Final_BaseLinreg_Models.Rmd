@@ -31,8 +31,6 @@ test = suicides[-train.ids,]
 ## Baseline Model
 ```{r}
 base_mod <- mean(suicides$`suicides/100k pop`)
-
-#******HOW TO CALCULATE r2 for baseline model. 
 ```
 
 

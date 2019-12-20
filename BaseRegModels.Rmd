@@ -1,6 +1,5 @@
 ---
 title: "Baseline and Regression Models"
-author: "Fanice M. Nyatigo"
 date: "12/07/2019"
 output:
   html_document:
