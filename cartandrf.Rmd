@@ -1,8 +1,7 @@
 ---
 title: "finalproj"
-author: '3032437864'
 date: "12/13/2019"
-output: html_document
+output: pdf_document
 ---
 
 ```{r}
@@ -28,7 +27,6 @@ OSR2 <- function(predictions, test, train) {
 
 ```{r}
 us <- read.csv("us_suicides_merged_no_na.csv")
-us
 ```
 
 ```{r}
@@ -242,4 +240,36 @@ OSR2(pred.boost, test_us$suicides.100k.pop, train_us$suicides.100k.pop)
 # OSR2(pred.best.boost, test_us$suicides.100k.pop, train_us$suicides.100k.pop)
 # #Out-of-sample MAE:
 # sum(abs(test_us$suicides.100k.pop - pred.best.boost))/nrow(test_us_mm)
+```
+
+```{r}
+### do bootstrap
+big_B = 100000
+
+# CART
+cart_df = data.frame(labels = test_us$suicides.100k.pop, predictions = predcart_us)
+set.seed(377)
+CART_boot = boot(cart_df, boot_all_metrics, R = big_B)
+CART_boot
+boot.ci(CART_boot, index = 1, type = "basic")
+boot.ci(CART_boot, index = 2, type = "basic")
+boot.ci(CART_boot, index = 3, type = "basic")
+
+# RF
+rf_df = data.frame(labels = test_us$suicides.100k.pop, predictions = pred.best.rf_us_mtryTen)
+set.seed(377)
+RF_boot = boot(rf_df, boot_all_metrics, R = big_B)
+RF_boot
+boot.ci(RF_boot, index = 1, type = "basic")
+boot.ci(RF_boot, index = 2, type = "basic")
+boot.ci(RF_boot, index = 3, type = "basic")
+
+# Boosting
+boost_df = data.frame(labels = test_us$suicides.100k.pop, predictions = pred.boost < 0.5)
+set.seed(377)
+Boost_boot = boot(boost_df, boot_all_metrics, R = big_B)
+Boost_boot
+boot.ci(Boost_boot, index = 1, type = "basic")
+boot.ci(Boost_boot, index = 2, type = "basic")
+boot.ci(Boost_boot, index = 3, type = "basic")
 ```
