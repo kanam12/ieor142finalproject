@@ -46,7 +46,7 @@ test_ts <- us_ts %>% filter(year >= 2010)
 
 
 
-####BUILDING MODELS FOR INDIVIDUAL COLUMNS:
+#### BUILDING MODELS:
 ```{r}
 # Linear trend model training data -- Make a new column for the time period
 # number (1, 2, ...). The dplyr syntax is a little tricky here -- n() is the
@@ -63,7 +63,7 @@ ggplot(trainLM_ts, aes(x=year, y=age)) +
 ```
 
 
-###### Random Walk model training data 
+#### Random Walk model training data 
 ```{r}
 trainRW_ts <- train_ts %>% mutate(LastYear = c(rep(NA, 12), head(suicides.100k.pop, -12)))
 head(trainRW_ts, 15)
@@ -148,7 +148,9 @@ test_ts_final <- test_ts %>%
 
 ```{r}
 # Test set prediction and OSR^2
-# Test-set prediction
+pred.test2 <- predict(mod2a, newdata = test_ts_final)
+OSR2(tail(pred.test2, -24), trainAR_ts$suicides.100k.pop, tail(test_ts_final$suicides.100k.pop, -24))
+
 pred.test <- predict(mod2b, newdata = test_ts_final)
 OSR2(tail(pred.test, -24), trainAR_ts$suicides.100k.pop, tail(test_ts_final$suicides.100k.pop, -24))
 
