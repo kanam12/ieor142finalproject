@@ -1,0 +1,745 @@
+country,year,sex,age,suicides_no,population,suicides/100k pop,country-year,HDI for year,gdp_per_capita ($),generation,gdp_for_year ($)
+United States,1985,male,75+ years,2177,4064000,53.57,United States1985,0.841,19693,G.I. Generation,4346734000000
+United States,1985,male,55-74 years,5302,17971000,29.5,United States1985,0.841,19693,G.I. Generation,4346734000000
+United States,1985,male,25-34 years,5134,20986000,24.46,United States1985,0.841,19693,Boomers,4346734000000
+United States,1985,male,35-54 years,6053,26589000,22.77,United States1985,0.841,19693,Silent,4346734000000
+United States,1985,male,15-24 years,4267,19962000,21.38,United States1985,0.841,19693,Generation X,4346734000000
+United States,1985,female,35-54 years,2105,27763000,7.58,United States1985,0.841,19693,Silent,4346734000000
+United States,1985,female,55-74 years,1568,21366000,7.34,United States1985,0.841,19693,G.I. Generation,4346734000000
+United States,1985,female,75+ years,466,7469000,6.24,United States1985,0.841,19693,G.I. Generation,4346734000000
+United States,1985,female,25-34 years,1242,21041000,5.9,United States1985,0.841,19693,Boomers,4346734000000
+United States,1985,female,15-24 years,854,19589000,4.36,United States1985,0.841,19693,Generation X,4346734000000
+United States,1985,male,5-14 years,205,17370000,1.18,United States1985,0.841,19693,Generation X,4346734000000
+United States,1985,female,5-14 years,73,16553000,0.44,United States1985,0.841,19693,Generation X,4346734000000
+United States,1990,male,75+ years,2653,4585900,57.85,United States1990,0.8590000000000001,26004,G.I. Generation,5979589000000
+United States,1990,male,55-74 years,5109,17861900,28.6,United States1990,0.8590000000000001,26004,G.I. Generation,5979589000000
+United States,1990,male,25-34 years,5339,21564300,24.76,United States1990,0.8590000000000001,26004,Boomers,5979589000000
+United States,1990,male,35-54 years,7260,30742000,23.62,United States1990,0.8590000000000001,26004,Silent,5979589000000
+United States,1990,male,15-24 years,4160,18915400,21.99,United States1990,0.8590000000000001,26004,Generation X,5979589000000
+United States,1990,female,55-74 years,1504,21296300,7.06,United States1990,0.8590000000000001,26004,G.I. Generation,5979589000000
+United States,1990,female,35-54 years,2175,31749500,6.85,United States1990,0.8590000000000001,26004,Silent,5979589000000
+United States,1990,female,75+ years,511,8447400,6.05,United States1990,0.8590000000000001,26004,G.I. Generation,5979589000000
+United States,1990,female,25-34 years,1211,21596400,5.61,United States1990,0.8590000000000001,26004,Boomers,5979589000000
+United States,1990,female,15-24 years,709,18097900,3.92,United States1990,0.8590000000000001,26004,Generation X,5979589000000
+United States,1990,male,5-14 years,195,17970800,1.09,United States1990,0.8590000000000001,26004,Generation X,5979589000000
+United States,1990,female,5-14 years,69,17124400,0.4,United States1990,0.8590000000000001,26004,Generation X,5979589000000
+United States,1995,male,75+ years,2580,5346600,48.25,United States1995,0.8759999999999999,31518,G.I. Generation,7664060000000
+United States,1995,male,25-34 years,5234,20432000,25.62,United States1995,0.8759999999999999,31518,Generation X,7664060000000
+United States,1995,male,55-74 years,4607,18386200,25.06,United States1995,0.8759999999999999,31518,Silent,7664060000000
+United States,1995,male,35-54 years,8545,36243300,23.58,United States1995,0.8759999999999999,31518,Boomers,7664060000000
+United States,1995,male,15-24 years,4132,18352000,22.52,United States1995,0.8759999999999999,31518,Generation X,7664060000000
+United States,1995,female,35-54 years,2454,37303100,6.58,United States1995,0.8759999999999999,31518,Boomers,7664060000000
+United States,1995,female,75+ years,516,9426600,5.47,United States1995,0.8759999999999999,31518,G.I. Generation,7664060000000
+United States,1995,female,55-74 years,1157,21504100,5.38,United States1995,0.8759999999999999,31518,Silent,7664060000000
+United States,1995,female,25-34 years,1058,20441200,5.18,United States1995,0.8759999999999999,31518,Generation X,7664060000000
+United States,1995,female,15-24 years,652,17594600,3.71,United States1995,0.8759999999999999,31518,Generation X,7664060000000
+United States,1995,male,5-14 years,260,19528500,1.33,United States1995,0.8759999999999999,31518,Millenials,7664060000000
+United States,1995,female,5-14 years,77,18606000,0.41,United States1995,0.8759999999999999,31518,Millenials,7664060000000
+United States,2000,male,75+ years,2589,6106351,42.4,United States2000,0.883,39218,G.I. Generation,10284779000000
+United States,2000,male,35-54 years,9263,40945028,22.62,United States2000,0.883,39218,Boomers,10284779000000
+United States,2000,male,55-74 years,4153,19948630,20.82,United States2000,0.883,39218,Silent,10284779000000
+United States,2000,male,25-34 years,3938,20120529,19.57,United States2000,0.883,39218,Generation X,10284779000000
+United States,2000,male,15-24 years,3424,20078818,17.05,United States2000,0.883,39218,Generation X,10284779000000
+United States,2000,female,35-54 years,2736,41881451,6.53,United States2000,0.883,39218,Boomers,10284779000000
+United States,2000,female,55-74 years,1084,22717040,4.77,United States2000,0.883,39218,Silent,10284779000000
+United States,2000,female,25-34 years,854,19771195,4.32,United States2000,0.883,39218,Generation X,10284779000000
+United States,2000,female,75+ years,425,10494416,4.05,United States2000,0.883,39218,G.I. Generation,10284779000000
+United States,2000,female,15-24 years,570,19105073,2.98,United States2000,0.883,39218,Generation X,10284779000000
+United States,2000,male,5-14 years,244,21043474,1.16,United States2000,0.883,39218,Millenials,10284779000000
+United States,2000,female,5-14 years,63,20034103,0.31,United States2000,0.883,39218,Millenials,10284779000000
+United States,2005,male,75+ years,2610,6883241,37.92,United States2005,0.897,47423,Silent,13093726000000
+United States,2005,male,35-54 years,10332,42835394,24.12,United States2005,0.897,47423,Boomers,13093726000000
+United States,2005,male,55-74 years,5190,23156114,22.41,United States2005,0.897,47423,Silent,13093726000000
+United States,2005,male,25-34 years,4066,20421260,19.91,United States2005,0.897,47423,Generation X,13093726000000
+United States,2005,male,15-24 years,3498,21647159,16.16,United States2005,0.897,47423,Millenials,13093726000000
+United States,2005,female,35-54 years,3209,43509335,7.38,United States2005,0.897,47423,Boomers,13093726000000
+United States,2005,female,55-74 years,1364,25839240,5.28,United States2005,0.897,47423,Silent,13093726000000
+United States,2005,female,25-34 years,924,19721652,4.69,United States2005,0.897,47423,Generation X,13093726000000
+United States,2005,female,75+ years,450,11267059,3.99,United States2005,0.897,47423,Silent,13093726000000
+United States,2005,female,15-24 years,714,20429690,3.49,United States2005,0.897,47423,Millenials,13093726000000
+United States,2005,male,5-14 years,204,20675232,0.99,United States2005,0.897,47423,Millenials,13093726000000
+United States,2005,female,5-14 years,68,19721304,0.34,United States2005,0.897,47423,Millenials,13093726000000
+United States,2010,male,75+ years,2617,7263596,36.03,United States2010,0.909,51989,Silent,14964372000000
+United States,2010,male,35-54 years,11767,42798501,27.49,United States2010,0.909,51989,Generation X,14964372000000
+United States,2010,male,55-74 years,7287,27667895,26.34,United States2010,0.909,51989,Silent,14964372000000
+United States,2010,male,25-34 years,4645,20409866,22.76,United States2010,0.909,51989,Generation X,14964372000000
+United States,2010,male,15-24 years,3772,22463069,16.79,United States2010,0.909,51989,Millenials,14964372000000
+United States,2010,female,35-54 years,3604,42711237,8.44,United States2010,0.909,51989,Generation X,14964372000000
+United States,2010,female,55-74 years,2071,30326595,6.83,United States2010,0.909,51989,Silent,14964372000000
+United States,2010,female,25-34 years,1092,20180858,5.41,United States2010,0.909,51989,Generation X,14964372000000
+United States,2010,female,15-24 years,830,21395712,3.88,United States2010,0.909,51989,Millenials,14964372000000
+United States,2010,female,75+ years,403,11163521,3.61,United States2010,0.909,51989,Silent,14964372000000
+United States,2010,male,5-14 years,187,21207667,0.88,United States2010,0.909,51989,Generation Z,14964372000000
+United States,2010,female,5-14 years,87,20250632,0.43,United States2010,0.909,51989,Generation Z,14964372000000
+United States,2011,male,75+ years,2721,7448796,36.53,United States2011,0.9109999999999999,53452,Silent,15517926000000
+United States,2011,male,35-54 years,11681,42566273,27.44,United States2011,0.9109999999999999,53452,Generation X,15517926000000
+United States,2011,male,55-74 years,7572,28556351,26.52,United States2011,0.9109999999999999,53452,Boomers,15517926000000
+United States,2011,male,25-34 years,4862,20698307,23.49,United States2011,0.9109999999999999,53452,Millenials,15517926000000
+United States,2011,male,15-24 years,3959,22622559,17.5,United States2011,0.9109999999999999,53452,Millenials,15517926000000
+United States,2011,female,35-54 years,3776,42485156,8.89,United States2011,0.9109999999999999,53452,Generation X,15517926000000
+United States,2011,female,55-74 years,2128,31268702,6.81,United States2011,0.9109999999999999,53452,Boomers,15517926000000
+United States,2011,female,25-34 years,1238,20408037,6.07,United States2011,0.9109999999999999,53452,Millenials,15517926000000
+United States,2011,female,15-24 years,863,21552069,4.0,United States2011,0.9109999999999999,53452,Millenials,15517926000000
+United States,2011,female,75+ years,421,11270969,3.74,United States2011,0.9109999999999999,53452,Silent,15517926000000
+United States,2011,male,5-14 years,201,21185153,0.95,United States2011,0.9109999999999999,53452,Generation Z,15517926000000
+United States,2011,female,5-14 years,86,20251453,0.42,United States2011,0.9109999999999999,53452,Generation Z,15517926000000
+United States,2012,male,75+ years,2853,7633574,37.37,United States2012,0.912,55170,Silent,16155255000000
+United States,2012,male,35-54 years,11763,42326226,27.79,United States2012,0.912,55170,Generation X,16155255000000
+United States,2012,male,55-74 years,8032,29473157,27.25,United States2012,0.912,55170,Boomers,16155255000000
+United States,2012,male,25-34 years,4985,21028158,23.71,United States2012,0.912,55170,Millenials,16155255000000
+United States,2012,male,15-24 years,3918,22713083,17.25,United States2012,0.912,55170,Millenials,16155255000000
+United States,2012,female,35-54 years,3857,42238495,9.13,United States2012,0.912,55170,Generation X,16155255000000
+United States,2012,female,55-74 years,2264,32244829,7.02,United States2012,0.912,55170,Boomers,16155255000000
+United States,2012,female,25-34 years,1231,20667924,5.96,United States2012,0.912,55170,Millenials,16155255000000
+United States,2012,female,15-24 years,954,21653970,4.41,United States2012,0.912,55170,Millenials,16155255000000
+United States,2012,female,75+ years,428,11375645,3.76,United States2012,0.912,55170,Silent,16155255000000
+United States,2012,male,5-14 years,226,21198150,1.07,United States2012,0.912,55170,Generation Z,16155255000000
+United States,2012,female,5-14 years,85,20273917,0.42,United States2012,0.912,55170,Generation Z,16155255000000
+United States,2013,male,75+ years,2990,7816638,38.25,United States2013,0.9129999999999999,56520,Silent,16691517000000
+United States,2013,male,55-74 years,8445,30405404,27.77,United States2013,0.9129999999999999,56520,Boomers,16691517000000
+United States,2013,male,35-54 years,11396,42085688,27.08,United States2013,0.9129999999999999,56520,Generation X,16691517000000
+United States,2013,male,25-34 years,5063,21386891,23.67,United States2013,0.9129999999999999,56520,Millenials,16691517000000
+United States,2013,male,15-24 years,3903,22735631,17.17,United States2013,0.9129999999999999,56520,Millenials,16691517000000
+United States,2013,female,35-54 years,3776,41983845,8.99,United States2013,0.9129999999999999,56520,Generation X,16691517000000
+United States,2013,female,55-74 years,2484,33229667,7.48,United States2013,0.9129999999999999,56520,Boomers,16691517000000
+United States,2013,female,25-34 years,1285,20951958,6.13,United States2013,0.9129999999999999,56520,Millenials,16691517000000
+United States,2013,female,15-24 years,975,21698877,4.49,United States2013,0.9129999999999999,56520,Millenials,16691517000000
+United States,2013,female,75+ years,431,11486590,3.75,United States2013,0.9129999999999999,56520,Silent,16691517000000
+United States,2013,male,5-14 years,252,21233001,1.19,United States2013,0.9129999999999999,56520,Generation Z,16691517000000
+United States,2013,female,5-14 years,143,20308672,0.7,United States2013,0.9129999999999999,56520,Generation Z,16691517000000
+United States,2014,male,75+ years,3106,7994948,38.85,United States2014,0.915,58531,Silent,17427609000000
+United States,2014,male,55-74 years,8961,31339875,28.59,United States2014,0.915,58531,Boomers,17427609000000
+United States,2014,male,35-54 years,11455,41858354,27.37,United States2014,0.915,58531,Generation X,17427609000000
+United States,2014,male,25-34 years,5222,21760455,24.0,United States2014,0.915,58531,Millenials,17427609000000
+United States,2014,male,15-24 years,4089,22700273,18.01,United States2014,0.915,58531,Millenials,17427609000000
+United States,2014,female,35-54 years,4018,41742299,9.63,United States2014,0.915,58531,Generation X,17427609000000
+United States,2014,female,55-74 years,2676,34193742,7.83,United States2014,0.915,58531,Boomers,17427609000000
+United States,2014,female,25-34 years,1347,21250636,6.34,United States2014,0.915,58531,Millenials,17427609000000
+United States,2014,female,15-24 years,990,21691057,4.56,United States2014,0.915,58531,Millenials,17427609000000
+United States,2014,female,75+ years,477,11616299,4.11,United States2014,0.915,58531,Silent,17427609000000
+United States,2014,male,5-14 years,277,21264881,1.3,United States2014,0.915,58531,Generation Z,17427609000000
+United States,2014,female,5-14 years,151,20336916,0.74,United States2014,0.915,58531,Generation Z,17427609000000
+United States,1986,male,75+ years,2340,4178000,56.01,United States1986,,20588,G.I. Generation,4590155000000
+United States,1986,male,55-74 years,5500,18101000,30.39,United States1986,,20588,G.I. Generation,4590155000000
+United States,1986,male,25-34 years,5450,21393000,25.48,United States1986,,20588,Boomers,4590155000000
+United States,1986,male,35-54 years,6450,27363000,23.57,United States1986,,20588,Silent,4590155000000
+United States,1986,male,15-24 years,4276,19715000,21.69,United States1986,,20588,Generation X,4590155000000
+United States,1986,female,35-54 years,2299,28520000,8.06,United States1986,,20588,Silent,4590155000000
+United States,1986,female,55-74 years,1696,21455000,7.9,United States1986,,20588,G.I. Generation,4590155000000
+United States,1986,female,75+ years,521,7669000,6.79,United States1986,,20588,G.I. Generation,4590155000000
+United States,1986,female,25-34 years,1261,21391000,5.9,United States1986,,20588,Boomers,4590155000000
+United States,1986,female,15-24 years,844,19313000,4.37,United States1986,,20588,Generation X,4590155000000
+United States,1986,male,5-14 years,199,17338000,1.15,United States1986,,20588,Generation X,4590155000000
+United States,1986,female,5-14 years,56,16517000,0.34,United States1986,,20588,Generation X,4590155000000
+United States,1987,male,75+ years,2532,4295000,58.95,United States1987,,21631,G.I. Generation,4870217000000
+United States,1987,male,55-74 years,5482,18190000,30.14,United States1987,,21631,G.I. Generation,4870217000000
+United States,1987,male,25-34 years,5370,21670000,24.78,United States1987,,21631,Boomers,4870217000000
+United States,1987,male,35-54 years,6569,28222000,23.28,United States1987,,21631,Silent,4870217000000
+United States,1987,male,15-24 years,4109,19327000,21.26,United States1987,,21631,Generation X,4870217000000
+United States,1987,female,35-54 years,2270,29359000,7.73,United States1987,,21631,Silent,4870217000000
+United States,1987,female,55-74 years,1596,21497000,7.42,United States1987,,21631,G.I. Generation,4870217000000
+United States,1987,female,75+ years,504,7872000,6.4,United States1987,,21631,G.I. Generation,4870217000000
+United States,1987,female,25-34 years,1285,21645000,5.94,United States1987,,21631,Boomers,4870217000000
+United States,1987,female,15-24 years,815,18925000,4.31,United States1987,,21631,Generation X,4870217000000
+United States,1987,male,5-14 years,199,17486000,1.14,United States1987,,21631,Generation X,4870217000000
+United States,1987,female,5-14 years,52,16660000,0.31,United States1987,,21631,Generation X,4870217000000
+United States,1988,male,75+ years,2548,4409000,57.79,United States1988,,23103,G.I. Generation,5252629000000
+United States,1988,male,55-74 years,5198,18235000,28.51,United States1988,,23103,G.I. Generation,5252629000000
+United States,1988,male,25-34 years,5463,21853000,25.0,United States1988,,23103,Boomers,5252629000000
+United States,1988,male,35-54 years,6528,29147000,22.4,United States1988,,23103,Silent,5252629000000
+United States,1988,male,15-24 years,4143,18897000,21.92,United States1988,,23103,Generation X,5252629000000
+United States,1988,female,35-54 years,2209,30281000,7.3,United States1988,,23103,Silent,5252629000000
+United States,1988,female,55-74 years,1504,21491000,7.0,United States1988,,23103,G.I. Generation,5252629000000
+United States,1988,female,75+ years,519,8062000,6.44,United States1988,,23103,G.I. Generation,5252629000000
+United States,1988,female,25-34 years,1247,21822000,5.71,United States1988,,23103,Boomers,5252629000000
+United States,1988,female,15-24 years,786,18501000,4.25,United States1988,,23103,Generation X,5252629000000
+United States,1988,male,5-14 years,181,17751000,1.02,United States1988,,23103,Generation X,5252629000000
+United States,1988,female,5-14 years,62,16904000,0.37,United States1988,,23103,Generation X,5252629000000
+United States,1989,male,75+ years,2462,4541000,54.22,United States1989,,24654,G.I. Generation,5657693000000
+United States,1989,male,55-74 years,5185,18295000,28.34,United States1989,,24654,G.I. Generation,5657693000000
+United States,1989,male,25-34 years,5339,21943000,24.33,United States1989,,24654,Boomers,5657693000000
+United States,1989,male,35-54 years,6814,30135000,22.61,United States1989,,24654,Silent,5657693000000
+United States,1989,male,15-24 years,4106,18459000,22.24,United States1989,,24654,Generation X,5657693000000
+United States,1989,female,35-54 years,2159,31264000,6.91,United States1989,,24654,Silent,5657693000000
+United States,1989,female,55-74 years,1432,21480000,6.67,United States1989,,24654,G.I. Generation,5657693000000
+United States,1989,female,75+ years,491,8262000,5.94,United States1989,,24654,G.I. Generation,5657693000000
+United States,1989,female,25-34 years,1226,21892000,5.6,United States1989,,24654,Boomers,5657693000000
+United States,1989,female,15-24 years,764,18055000,4.23,United States1989,,24654,Generation X,5657693000000
+United States,1989,male,5-14 years,184,18010000,1.02,United States1989,,24654,Generation X,5657693000000
+United States,1989,female,5-14 years,56,17151000,0.33,United States1989,,24654,Generation X,5657693000000
+United States,1991,male,75+ years,2673,4769000,56.05,United States1991,0.861,26503,G.I. Generation,6174043000000
+United States,1991,male,55-74 years,4983,17954000,27.75,United States1991,0.861,26503,Silent,6174043000000
+United States,1991,male,25-34 years,5361,21427000,25.02,United States1991,0.861,26503,Boomers,6174043000000
+United States,1991,male,35-54 years,7454,31995000,23.3,United States1991,0.861,26503,Boomers,6174043000000
+United States,1991,male,15-24 years,4073,18609000,21.89,United States1991,0.861,26503,Generation X,6174043000000
+United States,1991,female,35-54 years,2296,33017000,6.95,United States1991,0.861,26503,Boomers,6174043000000
+United States,1991,female,55-74 years,1342,21331000,6.29,United States1991,0.861,26503,Silent,6174043000000
+United States,1991,female,75+ years,511,8705000,5.87,United States1991,0.861,26503,G.I. Generation,6174043000000
+United States,1991,female,25-34 years,1153,21450000,5.38,United States1991,0.861,26503,Boomers,6174043000000
+United States,1991,female,15-24 years,678,17790000,3.81,United States1991,0.861,26503,Generation X,6174043000000
+United States,1991,male,5-14 years,208,18388000,1.13,United States1991,0.861,26503,Millenials,6174043000000
+United States,1991,female,5-14 years,58,17520000,0.33,United States1991,0.861,26503,Millenials,6174043000000
+United States,1992,male,75+ years,2573,4916700,52.33,United States1992,0.867,27760,G.I. Generation,6539299000000
+United States,1992,male,55-74 years,4818,18038900,26.71,United States1992,0.867,27760,Silent,6539299000000
+United States,1992,male,25-34 years,5102,21232500,24.03,United States1992,0.867,27760,Boomers,6539299000000
+United States,1992,male,35-54 years,7679,33165400,23.15,United States1992,0.867,27760,Boomers,6539299000000
+United States,1992,male,15-24 years,4044,18478000,21.89,United States1992,0.867,27760,Generation X,6539299000000
+United States,1992,female,35-54 years,2348,34156600,6.87,United States1992,0.867,27760,Boomers,6539299000000
+United States,1992,female,55-74 years,1325,21346900,6.21,United States1992,0.867,27760,Silent,6539299000000
+United States,1992,female,75+ years,549,8898100,6.17,United States1992,0.867,27760,G.I. Generation,6539299000000
+United States,1992,female,25-34 years,1070,21212300,5.04,United States1992,0.867,27760,Boomers,6539299000000
+United States,1992,female,15-24 years,649,17668700,3.67,United States1992,0.867,27760,Generation X,6539299000000
+United States,1992,male,5-14 years,232,18668200,1.24,United States1992,0.867,27760,Millenials,6539299000000
+United States,1992,female,5-14 years,82,17783300,0.46,United States1992,0.867,27760,Millenials,6539299000000
+United States,1993,male,75+ years,2649,5043500,52.52,United States1993,0.871,28891,G.I. Generation,6878718000000
+United States,1993,male,55-74 years,4797,18163000,26.41,United States1993,0.871,28891,Silent,6878718000000
+United States,1993,male,25-34 years,5218,20942000,24.92,United States1993,0.871,28891,Boomers,6878718000000
+United States,1993,male,35-54 years,7976,34205000,23.32,United States1993,0.871,28891,Boomers,6878718000000
+United States,1993,male,15-24 years,4119,18399400,22.39,United States1993,0.871,28891,Generation X,6878718000000
+United States,1993,female,35-54 years,2362,35236400,6.7,United States1993,0.871,28891,Boomers,6878718000000
+United States,1993,female,55-74 years,1304,21398900,6.09,United States1993,0.871,28891,Silent,6878718000000
+United States,1993,female,75+ years,519,9090400,5.71,United States1993,0.871,28891,G.I. Generation,6878718000000
+United States,1993,female,25-34 years,1089,20933400,5.2,United States1993,0.871,28891,Boomers,6878718000000
+United States,1993,female,15-24 years,730,17630000,4.14,United States1993,0.871,28891,Generation X,6878718000000
+United States,1993,male,5-14 years,233,18972100,1.23,United States1993,0.871,28891,Millenials,6878718000000
+United States,1993,female,5-14 years,88,18078200,0.49,United States1993,0.871,28891,Millenials,6878718000000
+United States,1994,male,75+ years,2629,5185500,50.7,United States1994,0.875,30375,G.I. Generation,7308755000000
+United States,1994,male,25-34 years,5295,20676800,25.61,United States1994,0.875,30375,Boomers,7308755000000
+United States,1994,male,55-74 years,4498,18273200,24.62,United States1994,0.875,30375,Silent,7308755000000
+United States,1994,male,15-24 years,4302,18347400,23.45,United States1994,0.875,30375,Generation X,7308755000000
+United States,1994,male,35-54 years,8199,35239700,23.27,United States1994,0.875,30375,Boomers,7308755000000
+United States,1994,female,35-54 years,2472,36290200,6.81,United States1994,0.875,30375,Boomers,7308755000000
+United States,1994,female,75+ years,514,9261000,5.55,United States1994,0.875,30375,G.I. Generation,7308755000000
+United States,1994,female,55-74 years,1179,21456100,5.49,United States1994,0.875,30375,Silent,7308755000000
+United States,1994,female,25-34 years,1059,20677400,5.12,United States1994,0.875,30375,Boomers,7308755000000
+United States,1994,female,15-24 years,654,17595500,3.72,United States1994,0.875,30375,Generation X,7308755000000
+United States,1994,male,5-14 years,234,19259500,1.21,United States1994,0.875,30375,Millenials,7308755000000
+United States,1994,female,5-14 years,88,18351800,0.48,United States1994,0.875,30375,Millenials,7308755000000
+United States,1996,male,75+ years,2586,5556200,46.54,United States1996,0.879,32928,G.I. Generation,8100201000000
+United States,1996,male,55-74 years,4613,18490700,24.95,United States1996,0.879,32928,Silent,8100201000000
+United States,1996,male,35-54 years,8984,37405100,24.02,United States1996,0.879,32928,Boomers,8100201000000
+United States,1996,male,25-34 years,4848,20191300,24.01,United States1996,0.879,32928,Generation X,8100201000000
+United States,1996,male,15-24 years,3724,18617800,20.0,United States1996,0.879,32928,Generation X,8100201000000
+United States,1996,female,35-54 years,2594,38357900,6.76,United States1996,0.879,32928,Boomers,8100201000000
+United States,1996,female,55-74 years,1118,21540200,5.19,United States1996,0.879,32928,Silent,8100201000000
+United States,1996,female,25-34 years,1013,20176900,5.02,United States1996,0.879,32928,Generation X,8100201000000
+United States,1996,female,75+ years,463,9635400,4.81,United States1996,0.879,32928,G.I. Generation,8100201000000
+United States,1996,female,15-24 years,634,17604000,3.6,United States1996,0.879,32928,Generation X,8100201000000
+United States,1996,male,5-14 years,225,19681500,1.14,United States1996,0.879,32928,Millenials,8100201000000
+United States,1996,female,5-14 years,77,18740800,0.41,United States1996,0.879,32928,Millenials,8100201000000
+United States,1997,male,75+ years,2566,5740700,44.7,United States1997,0.8809999999999999,34644,G.I. Generation,8608515000000
+United States,1997,male,55-74 years,4514,18659400,24.19,United States1997,0.8809999999999999,34644,Silent,8608515000000
+United States,1997,male,25-34 years,4684,19810400,23.64,United States1997,0.8809999999999999,34644,Generation X,8608515000000
+United States,1997,male,35-54 years,8920,38339600,23.27,United States1997,0.8809999999999999,34644,Boomers,8608515000000
+United States,1997,male,15-24 years,3559,18805800,18.93,United States1997,0.8809999999999999,34644,Generation X,8608515000000
+United States,1997,female,35-54 years,2758,39291000,7.02,United States1997,0.8809999999999999,34644,Boomers,8608515000000
+United States,1997,female,75+ years,499,9836300,5.07,United States1997,0.8809999999999999,34644,G.I. Generation,8608515000000
+United States,1997,female,55-74 years,1095,21652100,5.06,United States1997,0.8809999999999999,34644,Silent,8608515000000
+United States,1997,female,25-34 years,988,19799100,4.99,United States1997,0.8809999999999999,34644,Generation X,8608515000000
+United States,1997,female,15-24 years,627,17773900,3.53,United States1997,0.8809999999999999,34644,Generation X,8608515000000
+United States,1997,male,5-14 years,233,19860900,1.17,United States1997,0.8809999999999999,34644,Millenials,8608515000000
+United States,1997,female,5-14 years,74,18917200,0.39,United States1997,0.8809999999999999,34644,Millenials,8608515000000
+United States,1998,male,75+ years,2686,5948900,45.15,United States1998,0.884,36164,G.I. Generation,9089168000000
+United States,1998,male,35-54 years,9192,39000700,23.57,United States1998,0.884,36164,Boomers,9089168000000
+United States,1998,male,55-74 years,4466,19055300,23.44,United States1998,0.884,36164,Silent,9089168000000
+United States,1998,male,25-34 years,4404,19253800,22.87,United States1998,0.884,36164,Generation X,9089168000000
+United States,1998,male,15-24 years,3532,19041700,18.55,United States1998,0.884,36164,Generation X,9089168000000
+United States,1998,female,35-54 years,2776,40104100,6.92,United States1998,0.884,36164,Boomers,9089168000000
+United States,1998,female,75+ years,520,10057000,5.17,United States1998,0.884,36164,G.I. Generation,9089168000000
+United States,1998,female,55-74 years,1094,22016000,4.97,United States1998,0.884,36164,Silent,9089168000000
+United States,1998,female,25-34 years,961,19520600,4.92,United States1998,0.884,36164,Generation X,9089168000000
+United States,1998,female,15-24 years,603,18171800,3.32,United States1998,0.884,36164,Generation X,9089168000000
+United States,1998,male,5-14 years,241,20049800,1.2,United States1998,0.884,36164,Millenials,9089168000000
+United States,1998,female,5-14 years,83,19112800,0.43,United States1998,0.884,36164,Millenials,9089168000000
+United States,1999,male,75+ years,2549,6111376,41.71,United States1999,0.885,38072,G.I. Generation,9660624000000
+United States,1999,male,35-54 years,8873,39753404,22.32,United States1999,0.885,38072,Boomers,9660624000000
+United States,1999,male,25-34 years,4194,18826288,22.28,United States1999,0.885,38072,Generation X,9660624000000
+United States,1999,male,55-74 years,4306,19349103,22.25,United States1999,0.885,38072,Silent,9660624000000
+United States,1999,male,15-24 years,3326,19334049,17.2,United States1999,0.885,38072,Generation X,9660624000000
+United States,1999,female,35-54 years,2674,40861603,6.54,United States1999,0.885,38072,Boomers,9660624000000
+United States,1999,female,25-34 years,912,19109524,4.77,United States1999,0.885,38072,Generation X,9660624000000
+United States,1999,female,55-74 years,1061,22258230,4.77,United States1999,0.885,38072,Silent,9660624000000
+United States,1999,female,75+ years,469,10210401,4.59,United States1999,0.885,38072,G.I. Generation,9660624000000
+United States,1999,female,15-24 years,575,18439463,3.12,United States1999,0.885,38072,Generation X,9660624000000
+United States,1999,male,5-14 years,194,20219664,0.96,United States1999,0.885,38072,Millenials,9660624000000
+United States,1999,female,5-14 years,50,19275566,0.26,United States1999,0.885,38072,Millenials,9660624000000
+United States,2001,male,75+ years,2549,6285825,40.55,United States2001,0.887,40018,Silent,10621824000000
+United States,2001,male,35-54 years,9684,41638996,23.26,United States2001,0.887,40018,Boomers,10621824000000
+United States,2001,male,55-74 years,4603,20451417,22.51,United States2001,0.887,40018,Silent,10621824000000
+United States,2001,male,25-34 years,4199,20013572,20.98,United States2001,0.887,40018,Generation X,10621824000000
+United States,2001,male,15-24 years,3409,20485156,16.64,United States2001,0.887,40018,Millenials,10621824000000
+United States,2001,female,35-54 years,2893,42567863,6.8,United States2001,0.887,40018,Boomers,10621824000000
+United States,2001,female,55-74 years,1146,23170384,4.95,United States2001,0.887,40018,Silent,10621824000000
+United States,2001,female,25-34 years,871,19593734,4.45,United States2001,0.887,40018,Generation X,10621824000000
+United States,2001,female,75+ years,412,10691894,3.85,United States2001,0.887,40018,Silent,10621824000000
+United States,2001,female,15-24 years,562,19463211,2.89,United States2001,0.887,40018,Millenials,10621824000000
+United States,2001,male,5-14 years,214,21032860,1.02,United States2001,0.887,40018,Millenials,10621824000000
+United States,2001,female,5-14 years,65,20032634,0.32,United States2001,0.887,40018,Millenials,10621824000000
+United States,2002,male,75+ years,2642,6470864,40.83,United States2002,0.889,40845,Silent,10977514000000
+United States,2002,male,35-54 years,10101,42042827,24.03,United States2002,0.889,40845,Boomers,10977514000000
+United States,2002,male,55-74 years,4890,21085316,23.19,United States2002,0.889,40845,Silent,10977514000000
+United States,2002,male,25-34 years,4135,20202776,20.47,United States2002,0.889,40845,Generation X,10977514000000
+United States,2002,male,15-24 years,3432,20821269,16.48,United States2002,0.889,40845,Millenials,10977514000000
+United States,2002,female,35-54 years,3058,42957716,7.12,United States2002,0.889,40845,Boomers,10977514000000
+United States,2002,female,55-74 years,1191,23790625,5.01,United States2002,0.889,40845,Silent,10977514000000
+United States,2002,female,25-34 years,911,19725528,4.62,United States2002,0.889,40845,Generation X,10977514000000
+United States,2002,female,75+ years,443,10856838,4.08,United States2002,0.889,40845,Silent,10977514000000
+United States,2002,female,15-24 years,578,19768514,2.92,United States2002,0.889,40845,Millenials,10977514000000
+United States,2002,male,5-14 years,199,21012559,0.95,United States2002,0.889,40845,Millenials,10977514000000
+United States,2002,female,5-14 years,65,20024727,0.32,United States2002,0.889,40845,Millenials,10977514000000
+United States,2003,male,75+ years,2499,6599131,37.87,United States2003,0.893,42468,Silent,11510670000000
+United States,2003,male,35-54 years,10025,42177315,23.77,United States2003,0.893,42468,Boomers,11510670000000
+United States,2003,male,55-74 years,4941,21773685,22.69,United States2003,0.893,42468,Silent,11510670000000
+United States,2003,male,25-34 years,4156,20222486,20.55,United States2003,0.893,42468,Generation X,11510670000000
+United States,2003,male,15-24 years,3381,21182602,15.96,United States2003,0.893,42468,Millenials,11510670000000
+United States,2003,female,35-54 years,3058,42997878,7.11,United States2003,0.893,42468,Boomers,11510670000000
+United States,2003,female,55-74 years,1237,24463095,5.06,United States2003,0.893,42468,Silent,11510670000000
+United States,2003,female,25-34 years,909,19650112,4.63,United States2003,0.893,42468,Generation X,11510670000000
+United States,2003,female,75+ years,414,10983008,3.77,United States2003,0.893,42468,Silent,11510670000000
+United States,2003,female,15-24 years,607,20023561,3.03,United States2003,0.893,42468,Millenials,11510670000000
+United States,2003,male,5-14 years,194,20976656,0.92,United States2003,0.893,42468,Millenials,11510670000000
+United States,2003,female,5-14 years,56,19991981,0.28,United States2003,0.893,42468,Millenials,11510670000000
+United States,2004,male,75+ years,2496,6726102,37.11,United States2004,0.895,44867,Silent,12274928000000
+United States,2004,male,35-54 years,10145,42486552,23.88,United States2004,0.895,44867,Boomers,12274928000000
+United States,2004,male,55-74 years,4989,22427063,22.25,United States2004,0.895,44867,Silent,12274928000000
+United States,2004,male,25-34 years,4142,20336031,20.37,United States2004,0.895,44867,Generation X,12274928000000
+United States,2004,male,15-24 years,3596,21438383,16.77,United States2004,0.895,44867,Millenials,12274928000000
+United States,2004,female,35-54 years,3399,43240905,7.86,United States2004,0.895,44867,Boomers,12274928000000
+United States,2004,female,55-74 years,1301,25115333,5.18,United States2004,0.895,44867,Silent,12274928000000
+United States,2004,female,25-34 years,932,19695906,4.73,United States2004,0.895,44867,Generation X,12274928000000
+United States,2004,female,75+ years,423,11104411,3.81,United States2004,0.895,44867,Silent,12274928000000
+United States,2004,female,15-24 years,720,20262722,3.55,United States2004,0.895,44867,Millenials,12274928000000
+United States,2004,male,5-14 years,187,20860278,0.9,United States2004,0.895,44867,Millenials,12274928000000
+United States,2004,female,5-14 years,98,19890450,0.49,United States2004,0.895,44867,Millenials,12274928000000
+United States,2006,male,75+ years,2494,6986609,35.7,United States2006,0.9009999999999999,49666,Silent,13855888000000
+United States,2006,male,35-54 years,10641,43139910,24.67,United States2006,0.9009999999999999,49666,Boomers,13855888000000
+United States,2006,male,55-74 years,5431,23894147,22.73,United States2006,0.9009999999999999,49666,Silent,13855888000000
+United States,2006,male,25-34 years,4053,20564653,19.71,United States2006,0.9009999999999999,49666,Generation X,13855888000000
+United States,2006,male,15-24 years,3528,21844954,16.15,United States2006,0.9009999999999999,49666,Millenials,13855888000000
+United States,2006,female,35-54 years,3376,43805214,7.71,United States2006,0.9009999999999999,49666,Boomers,13855888000000
+United States,2006,female,55-74 years,1536,26609380,5.77,United States2006,0.9009999999999999,49666,Silent,13855888000000
+United States,2006,female,25-34 years,932,19851326,4.69,United States2006,0.9009999999999999,49666,Generation X,13855888000000
+United States,2006,female,75+ years,421,11356899,3.71,United States2006,0.9009999999999999,49666,Silent,13855888000000
+United States,2006,female,15-24 years,661,20590472,3.21,United States2006,0.9009999999999999,49666,Millenials,13855888000000
+United States,2006,male,5-14 years,153,20640120,0.74,United States2006,0.9009999999999999,49666,Millenials,13855888000000
+United States,2006,female,5-14 years,66,19697164,0.34,United States2006,0.9009999999999999,49666,Millenials,13855888000000
+United States,2007,male,75+ years,2566,7056824,36.36,United States2007,0.905,51585,Silent,14477635000000
+United States,2007,male,35-54 years,10978,42992076,25.53,United States2007,0.905,51585,Boomers,14477635000000
+United States,2007,male,55-74 years,5830,24661084,23.64,United States2007,0.905,51585,Silent,14477635000000
+United States,2007,male,25-34 years,4281,20531378,20.85,United States2007,0.905,51585,Generation X,14477635000000
+United States,2007,male,15-24 years,3481,22014323,15.81,United States2007,0.905,51585,Millenials,14477635000000
+United States,2007,female,35-54 years,3525,43607902,8.08,United States2007,0.905,51585,Boomers,14477635000000
+United States,2007,female,55-74 years,1684,27395858,6.15,United States2007,0.905,51585,Silent,14477635000000
+United States,2007,female,25-34 years,997,19839678,5.03,United States2007,0.905,51585,Generation X,14477635000000
+United States,2007,female,75+ years,411,11421017,3.6,United States2007,0.905,51585,Silent,14477635000000
+United States,2007,female,15-24 years,659,20765167,3.17,United States2007,0.905,51585,Millenials,14477635000000
+United States,2007,male,5-14 years,131,20659096,0.63,United States2007,0.905,51585,Generation Z,14477635000000
+United States,2007,female,5-14 years,53,19714203,0.27,United States2007,0.905,51585,Generation Z,14477635000000
+United States,2008,male,75+ years,2531,7072366,35.79,United States2008,0.91,52128,Silent,14718582000000
+United States,2008,male,35-54 years,11371,43002471,26.44,United States2008,0.91,52128,Boomers,14718582000000
+United States,2008,male,55-74 years,6558,25698503,25.52,United States2008,0.91,52128,Silent,14718582000000
+United States,2008,male,25-34 years,4273,20007152,21.36,United States2008,0.91,52128,Generation X,14718582000000
+United States,2008,male,15-24 years,3560,22184611,16.05,United States2008,0.91,52128,Millenials,14718582000000
+United States,2008,female,35-54 years,3619,42893858,8.44,United States2008,0.91,52128,Boomers,14718582000000
+United States,2008,female,55-74 years,1703,28307998,6.02,United States2008,0.91,52128,Silent,14718582000000
+United States,2008,female,25-34 years,1027,19812423,5.18,United States2008,0.91,52128,Generation X,14718582000000
+United States,2008,female,75+ years,428,11038522,3.88,United States2008,0.91,52128,Silent,14718582000000
+United States,2008,female,15-24 years,738,21149435,3.49,United States2008,0.91,52128,Millenials,14718582000000
+United States,2008,male,5-14 years,154,21074651,0.73,United States2008,0.91,52128,Generation Z,14718582000000
+United States,2008,female,5-14 years,68,20113575,0.34,United States2008,0.91,52128,Generation Z,14718582000000
+United States,2009,male,75+ years,2552,7168575,35.6,United States2009,0.91,50563,Silent,14418739000000
+United States,2009,male,35-54 years,11613,42932194,27.05,United States2009,0.91,50563,Boomers,14418739000000
+United States,2009,male,55-74 years,6851,26664733,25.69,United States2009,0.91,50563,Silent,14418739000000
+United States,2009,male,25-34 years,4293,20205941,21.25,United States2009,0.91,50563,Generation X,14418739000000
+United States,2009,male,15-24 years,3595,22343137,16.09,United States2009,0.91,50563,Millenials,14418739000000
+United States,2009,female,35-54 years,3664,42836835,8.55,United States2009,0.91,50563,Boomers,14418739000000
+United States,2009,female,55-74 years,1875,29296258,6.4,United States2009,0.91,50563,Silent,14418739000000
+United States,2009,female,25-34 years,1027,19992900,5.14,United States2009,0.91,50563,Generation X,14418739000000
+United States,2009,female,15-24 years,776,21299140,3.64,United States2009,0.91,50563,Millenials,14418739000000
+United States,2009,female,75+ years,389,11101144,3.5,United States2009,0.91,50563,Silent,14418739000000
+United States,2009,male,5-14 years,175,21139852,0.83,United States2009,0.91,50563,Generation Z,14418739000000
+United States,2009,female,5-14 years,90,20181953,0.45,United States2009,0.91,50563,Generation Z,14418739000000
+United States,2015,male,75+ years,3171,8171136,38.81,United States2015,0.92,60387,Silent,18120714000000
+United States,2015,male,55-74 years,9068,32264697,28.11,United States2015,0.92,60387,Boomers,18120714000000
+United States,2015,male,35-54 years,11634,41658010,27.93,United States2015,0.92,60387,Generation X,18120714000000
+United States,2015,male,25-34 years,5503,22137097,24.86,United States2015,0.92,60387,Millenials,18120714000000
+United States,2015,male,15-24 years,4359,22615073,19.27,United States2015,0.92,60387,Millenials,18120714000000
+United States,2015,female,35-54 years,4053,41531809,9.76,United States2015,0.92,60387,Generation X,18120714000000
+United States,2015,female,55-74 years,2872,35115610,8.18,United States2015,0.92,60387,Boomers,18120714000000
+United States,2015,female,25-34 years,1444,21555712,6.7,United States2015,0.92,60387,Millenials,18120714000000
+United States,2015,female,15-24 years,1132,21633813,5.23,United States2015,0.92,60387,Millenials,18120714000000
+United States,2015,female,75+ years,540,11778666,4.58,United States2015,0.92,60387,Silent,18120714000000
+United States,2015,male,5-14 years,255,21273987,1.2,United States2015,0.92,60387,Generation Z,18120714000000
+United States,2015,female,5-14 years,158,20342901,0.78,United States2015,0.92,60387,Generation Z,18120714000000
+Japan,1985,male,75+ years,1340,1791000,74.82,Japan1985,0.7909999999999999,12401,G.I. Generation,1398892744821
+Japan,1985,female,75+ years,1553,2862400,54.26,Japan1985,0.7909999999999999,12401,G.I. Generation,1398892744821
+Japan,1985,male,55-74 years,3763,8996900,41.83,Japan1985,0.7909999999999999,12401,G.I. Generation,1398892744821
+Japan,1985,male,35-54 years,6962,17833300,39.04,Japan1985,0.7909999999999999,12401,Silent,1398892744821
+Japan,1985,male,25-34 years,1982,8465800,23.41,Japan1985,0.7909999999999999,12401,Boomers,1398892744821
+Japan,1985,female,55-74 years,2543,11024900,23.07,Japan1985,0.7909999999999999,12401,G.I. Generation,1398892744821
+Japan,1985,female,35-54 years,2582,17953700,14.38,Japan1985,0.7909999999999999,12401,Silent,1398892744821
+Japan,1985,male,15-24 years,1139,8728500,13.05,Japan1985,0.7909999999999999,12401,Generation X,1398892744821
+Japan,1985,female,25-34 years,817,8321600,9.82,Japan1985,0.7909999999999999,12401,Boomers,1398892744821
+Japan,1985,female,15-24 years,491,8366600,5.87,Japan1985,0.7909999999999999,12401,Generation X,1398892744821
+Japan,1985,male,5-14 years,59,9423300,0.63,Japan1985,0.7909999999999999,12401,Generation X,1398892744821
+Japan,1985,female,5-14 years,26,9041200,0.29,Japan1985,0.7909999999999999,12401,Generation X,1398892744821
+Japan,1990,male,75+ years,1405,2232400,62.94,Japan1990,0.8140000000000001,26949,G.I. Generation,3132817652848
+Japan,1990,female,75+ years,1814,3736000,48.55,Japan1990,0.8140000000000001,26949,G.I. Generation,3132817652848
+Japan,1990,male,55-74 years,3654,10761800,33.95,Japan1990,0.8140000000000001,26949,G.I. Generation,3132817652848
+Japan,1990,male,35-54 years,4822,18296000,26.36,Japan1990,0.8140000000000001,26949,Silent,3132817652848
+Japan,1990,female,55-74 years,2607,12588300,20.71,Japan1990,0.8140000000000001,26949,G.I. Generation,3132817652848
+Japan,1990,male,25-34 years,1462,7927600,18.44,Japan1990,0.8140000000000001,26949,Boomers,3132817652848
+Japan,1990,female,35-54 years,2184,18325800,11.92,Japan1990,0.8140000000000001,26949,Silent,3132817652848
+Japan,1990,male,15-24 years,875,9545600,9.17,Japan1990,0.8140000000000001,26949,Generation X,3132817652848
+Japan,1990,female,25-34 years,698,7761900,8.99,Japan1990,0.8140000000000001,26949,Boomers,3132817652848
+Japan,1990,female,15-24 years,434,9143500,4.75,Japan1990,0.8140000000000001,26949,Generation X,3132817652848
+Japan,1990,male,5-14 years,30,8168200,0.37,Japan1990,0.8140000000000001,26949,Generation X,3132817652848
+Japan,1990,female,5-14 years,17,7764300,0.22,Japan1990,0.8140000000000001,26949,Generation X,3132817652848
+Japan,1995,male,75+ years,1358,2553900,53.17,Japan1995,0.838,46043,G.I. Generation,5449116304981
+Japan,1995,male,55-74 years,4429,12402300,35.71,Japan1995,0.838,46043,Silent,5449116304981
+Japan,1995,female,75+ years,1582,4592800,34.45,Japan1995,0.838,46043,G.I. Generation,5449116304981
+Japan,1995,male,35-54 years,5507,18054500,30.5,Japan1995,0.838,46043,Boomers,5449116304981
+Japan,1995,male,25-34 years,1692,8404400,20.13,Japan1995,0.838,46043,Generation X,5449116304981
+Japan,1995,female,55-74 years,2426,14003800,17.32,Japan1995,0.838,46043,Silent,5449116304981
+Japan,1995,male,15-24 years,1050,9332000,11.25,Japan1995,0.838,46043,Generation X,5449116304981
+Japan,1995,female,35-54 years,1984,17984000,11.03,Japan1995,0.838,46043,Boomers,5449116304981
+Japan,1995,female,25-34 years,667,8178700,8.16,Japan1995,0.838,46043,Generation X,5449116304981
+Japan,1995,female,15-24 years,488,8925300,5.47,Japan1995,0.838,46043,Generation X,5449116304981
+Japan,1995,male,5-14 years,43,7125500,0.6,Japan1995,0.838,46043,Millenials,5449116304981
+Japan,1995,female,5-14 years,23,6792300,0.34,Japan1995,0.838,46043,Millenials,5449116304981
+Japan,2000,male,55-74 years,7988,14034032,56.92,Japan2000,0.857,40813,Silent,4887519660745
+Japan,2000,male,75+ years,1619,3187143,50.8,Japan2000,0.857,40813,G.I. Generation,4887519660745
+Japan,2000,male,35-54 years,8023,17540437,45.74,Japan2000,0.857,40813,Boomers,4887519660745
+Japan,2000,female,75+ years,1796,5792695,31.0,Japan2000,0.857,40813,G.I. Generation,4887519660745
+Japan,2000,male,25-34 years,2454,9260089,26.5,Japan2000,0.857,40813,Generation X,4887519660745
+Japan,2000,female,55-74 years,3032,15357610,19.74,Japan2000,0.857,40813,Silent,4887519660745
+Japan,2000,male,15-24 years,1273,8063415,15.79,Japan2000,0.857,40813,Generation X,4887519660745
+Japan,2000,female,35-54 years,2172,17380248,12.5,Japan2000,0.857,40813,Boomers,4887519660745
+Japan,2000,female,25-34 years,1027,8975013,11.44,Japan2000,0.857,40813,Generation X,4887519660745
+Japan,2000,female,15-24 years,531,7669997,6.92,Japan2000,0.857,40813,Generation X,4887519660745
+Japan,2000,male,5-14 years,58,6401260,0.91,Japan2000,0.857,40813,Millenials,4887519660745
+Japan,2000,female,5-14 years,16,6090721,0.26,Japan2000,0.857,40813,Millenials,4887519660745
+Japan,2005,male,55-74 years,8005,15797130,50.67,Japan2005,0.8740000000000001,39412,Silent,4755410630912
+Japan,2005,male,35-54 years,8073,16566953,48.73,Japan2005,0.8740000000000001,39412,Boomers,4755410630912
+Japan,2005,male,75+ years,1858,4288706,43.32,Japan2005,0.8740000000000001,39412,Silent,4755410630912
+Japan,2005,male,25-34 years,2862,8984855,31.85,Japan2005,0.8740000000000001,39412,Generation X,4755410630912
+Japan,2005,female,75+ years,1600,7307828,21.89,Japan2005,0.8740000000000001,39412,Silent,4755410630912
+Japan,2005,male,15-24 years,1243,7043709,17.65,Japan2005,0.8740000000000001,39412,Millenials,4755410630912
+Japan,2005,female,55-74 years,2786,17011318,16.38,Japan2005,0.8740000000000001,39412,Silent,4755410630912
+Japan,2005,female,25-34 years,1140,8705334,13.1,Japan2005,0.8740000000000001,39412,Generation X,4755410630912
+Japan,2005,female,35-54 years,2114,16388567,12.9,Japan2005,0.8740000000000001,39412,Boomers,4755410630912
+Japan,2005,female,15-24 years,643,6672938,9.64,Japan2005,0.8740000000000001,39412,Millenials,4755410630912
+Japan,2005,male,5-14 years,29,6095375,0.48,Japan2005,0.8740000000000001,39412,Millenials,4755410630912
+Japan,2005,female,5-14 years,16,5794794,0.28,Japan2005,0.8740000000000001,39412,Millenials,4755410630912
+Japan,2010,male,55-74 years,7466,16402437,45.52,Japan2010,0.884,47059,Silent,5700098114744
+Japan,2010,male,35-54 years,7351,17131261,42.91,Japan2010,0.884,47059,Generation X,5700098114744
+Japan,2010,male,75+ years,2188,5345432,40.93,Japan2010,0.884,47059,Silent,5700098114744
+Japan,2010,male,25-34 years,2543,7822984,32.51,Japan2010,0.884,47059,Generation X,5700098114744
+Japan,2010,male,15-24 years,1315,6324856,20.79,Japan2010,0.884,47059,Millenials,5700098114744
+Japan,2010,female,75+ years,1686,8804107,19.15,Japan2010,0.884,47059,Silent,5700098114744
+Japan,2010,female,55-74 years,2879,17525806,16.43,Japan2010,0.884,47059,Silent,5700098114744
+Japan,2010,female,35-54 years,2404,16781836,14.33,Japan2010,0.884,47059,Generation X,5700098114744
+Japan,2010,female,25-34 years,1008,7545642,13.36,Japan2010,0.884,47059,Generation X,5700098114744
+Japan,2010,female,15-24 years,508,6008624,8.45,Japan2010,0.884,47059,Millenials,5700098114744
+Japan,2010,male,5-14 years,42,5855595,0.72,Japan2010,0.884,47059,Generation Z,5700098114744
+Japan,2010,female,5-14 years,21,5578687,0.38,Japan2010,0.884,47059,Generation Z,5700098114744
+Japan,2011,male,55-74 years,6858,16343000,41.96,Japan2011,0.8859999999999999,50919,Boomers,6157459594824
+Japan,2011,male,35-54 years,6975,17224000,40.5,Japan2011,0.8859999999999999,50919,Generation X,6157459594824
+Japan,2011,male,75+ years,2188,5570000,39.28,Japan2011,0.8859999999999999,50919,Silent,6157459594824
+Japan,2011,male,25-34 years,2404,7588000,31.68,Japan2011,0.8859999999999999,50919,Millenials,6157459594824
+Japan,2011,male,15-24 years,1304,6246000,20.88,Japan2011,0.8859999999999999,50919,Millenials,6157459594824
+Japan,2011,female,75+ years,1754,9092000,19.29,Japan2011,0.8859999999999999,50919,Silent,6157459594824
+Japan,2011,female,55-74 years,2883,17447000,16.52,Japan2011,0.8859999999999999,50919,Boomers,6157459594824
+Japan,2011,female,35-54 years,2598,16861000,15.41,Japan2011,0.8859999999999999,50919,Generation X,6157459594824
+Japan,2011,female,25-34 years,1112,7314000,15.2,Japan2011,0.8859999999999999,50919,Millenials,6157459594824
+Japan,2011,female,15-24 years,616,5931000,10.39,Japan2011,0.8859999999999999,50919,Millenials,6157459594824
+Japan,2011,male,5-14 years,52,5792000,0.9,Japan2011,0.8859999999999999,50919,Generation Z,6157459594824
+Japan,2011,female,5-14 years,22,5519000,0.4,Japan2011,0.8859999999999999,50919,Generation Z,6157459594824
+Japan,2012,male,75+ years,2262,5783000,39.11,Japan2012,0.888,51379,Silent,6203213121334
+Japan,2012,male,55-74 years,6134,16254000,37.74,Japan2012,0.888,51379,Boomers,6203213121334
+Japan,2012,male,35-54 years,6413,17318000,37.03,Japan2012,0.888,51379,Generation X,6203213121334
+Japan,2012,male,25-34 years,2244,7384000,30.39,Japan2012,0.888,51379,Millenials,6203213121334
+Japan,2012,male,15-24 years,1294,6185000,20.92,Japan2012,0.888,51379,Millenials,6203213121334
+Japan,2012,female,75+ years,1612,9362000,17.22,Japan2012,0.888,51379,Silent,6203213121334
+Japan,2012,female,55-74 years,2636,17342000,15.2,Japan2012,0.888,51379,Boomers,6203213121334
+Japan,2012,female,35-54 years,2242,16937000,13.24,Japan2012,0.888,51379,Generation X,6203213121334
+Japan,2012,female,25-34 years,931,7110000,13.09,Japan2012,0.888,51379,Millenials,6203213121334
+Japan,2012,female,15-24 years,495,5873000,8.43,Japan2012,0.888,51379,Millenials,6203213121334
+Japan,2012,male,5-14 years,55,5729000,0.96,Japan2012,0.888,51379,Generation Z,6203213121334
+Japan,2012,female,5-14 years,20,5458000,0.37,Japan2012,0.888,51379,Generation Z,6203213121334
+Japan,2013,male,75+ years,2362,5964000,39.6,Japan2013,0.89,42781,Silent,5155717056271
+Japan,2013,male,35-54 years,6333,17367000,36.47,Japan2013,0.89,42781,Generation X,5155717056271
+Japan,2013,male,55-74 years,5908,16202000,36.46,Japan2013,0.89,42781,Boomers,5155717056271
+Japan,2013,male,25-34 years,2178,7186000,30.31,Japan2013,0.89,42781,Millenials,5155717056271
+Japan,2013,male,15-24 years,1242,6143000,20.22,Japan2013,0.89,42781,Millenials,5155717056271
+Japan,2013,female,75+ years,1713,9588000,17.87,Japan2013,0.89,42781,Silent,5155717056271
+Japan,2013,female,55-74 years,2604,17279000,15.07,Japan2013,0.89,42781,Boomers,5155717056271
+Japan,2013,female,35-54 years,2242,16974000,13.21,Japan2013,0.89,42781,Generation X,5155717056271
+Japan,2013,female,25-34 years,850,6913000,12.3,Japan2013,0.89,42781,Millenials,5155717056271
+Japan,2013,female,15-24 years,467,5834000,8.0,Japan2013,0.89,42781,Millenials,5155717056271
+Japan,2013,male,5-14 years,58,5666000,1.02,Japan2013,0.89,42781,Generation Z,5155717056271
+Japan,2013,female,5-14 years,34,5398000,0.63,Japan2013,0.89,42781,Generation Z,5155717056271
+Japan,2014,male,75+ years,2254,6104000,36.93,Japan2014,0.8909999999999999,40328,Silent,4850413536038
+Japan,2014,male,55-74 years,5477,16213000,33.78,Japan2014,0.8909999999999999,40328,Boomers,4850413536038
+Japan,2014,male,35-54 years,5710,17365000,32.88,Japan2014,0.8909999999999999,40328,Generation X,4850413536038
+Japan,2014,male,25-34 years,2131,7007000,30.41,Japan2014,0.8909999999999999,40328,Millenials,4850413536038
+Japan,2014,male,15-24 years,1180,6110000,19.31,Japan2014,0.8909999999999999,40328,Millenials,4850413536038
+Japan,2014,female,75+ years,1587,9761000,16.26,Japan2014,0.8909999999999999,40328,Silent,4850413536038
+Japan,2014,female,55-74 years,2512,17288000,14.53,Japan2014,0.8909999999999999,40328,Boomers,4850413536038
+Japan,2014,female,35-54 years,2158,16959000,12.72,Japan2014,0.8909999999999999,40328,Generation X,4850413536038
+Japan,2014,female,25-34 years,814,6734000,12.09,Japan2014,0.8909999999999999,40328,Millenials,4850413536038
+Japan,2014,female,15-24 years,432,5803000,7.44,Japan2014,0.8909999999999999,40328,Millenials,4850413536038
+Japan,2014,male,5-14 years,68,5596000,1.22,Japan2014,0.8909999999999999,40328,Generation Z,4850413536038
+Japan,2014,female,5-14 years,34,5334000,0.64,Japan2014,0.8909999999999999,40328,Generation Z,4850413536038
+Japan,1986,male,75+ years,1488,1889000,78.77,Japan1986,,18288,G.I. Generation,2078953333674
+Japan,1986,female,75+ years,1801,3049000,59.07,Japan1986,,18288,G.I. Generation,2078953333674
+Japan,1986,male,55-74 years,4171,9374000,44.5,Japan1986,,18288,G.I. Generation,2078953333674
+Japan,1986,male,35-54 years,7298,18094000,40.33,Japan1986,,18288,Silent,2078953333674
+Japan,1986,female,55-74 years,2877,11355000,25.34,Japan1986,,18288,G.I. Generation,2078953333674
+Japan,1986,male,25-34 years,2057,8197000,25.09,Japan1986,,18288,Boomers,2078953333674
+Japan,1986,female,35-54 years,2787,18183000,15.33,Japan1986,,18288,Silent,2078953333674
+Japan,1986,male,15-24 years,1263,8931000,14.14,Japan1986,,18288,Generation X,2078953333674
+Japan,1986,female,25-34 years,936,8051000,11.63,Japan1986,,18288,Boomers,2078953333674
+Japan,1986,female,15-24 years,680,8548000,7.96,Japan1986,,18288,Generation X,2078953333674
+Japan,1986,male,5-14 years,73,9231000,0.79,Japan1986,,18288,Generation X,2078953333674
+Japan,1986,female,5-14 years,53,8777000,0.6,Japan1986,,18288,Generation X,2078953333674
+Japan,1987,male,75+ years,1446,1982000,72.96,Japan1987,,22137,G.I. Generation,2532808573157
+Japan,1987,female,75+ years,1718,3230000,53.19,Japan1987,,22137,G.I. Generation,2532808573157
+Japan,1987,male,55-74 years,3988,9718000,41.04,Japan1987,,22137,G.I. Generation,2532808573157
+Japan,1987,male,35-54 years,6688,18218000,36.71,Japan1987,,22137,Silent,2532808573157
+Japan,1987,female,55-74 years,2938,11656000,25.21,Japan1987,,22137,G.I. Generation,2532808573157
+Japan,1987,male,25-34 years,1904,8031000,23.71,Japan1987,,22137,Boomers,2532808573157
+Japan,1987,female,35-54 years,2496,18301000,13.64,Japan1987,,22137,Silent,2532808573157
+Japan,1987,male,15-24 years,1065,9167000,11.62,Japan1987,,22137,Generation X,2532808573157
+Japan,1987,female,25-34 years,782,7874000,9.93,Japan1987,,22137,Boomers,2532808573157
+Japan,1987,female,15-24 years,569,8757000,6.5,Japan1987,,22137,Generation X,2532808573157
+Japan,1987,male,5-14 years,52,8959000,0.58,Japan1987,,22137,Generation X,2532808573157
+Japan,1987,female,5-14 years,17,8523000,0.2,Japan1987,,22137,Generation X,2532808573157
+Japan,1988,male,75+ years,1490,2064000,72.19,Japan1988,,26687,G.I. Generation,3071683013179
+Japan,1988,female,75+ years,1865,3398000,54.89,Japan1988,,26687,G.I. Generation,3071683013179
+Japan,1988,male,55-74 years,3851,10062000,38.27,Japan1988,,26687,G.I. Generation,3071683013179
+Japan,1988,male,35-54 years,6087,18287000,33.29,Japan1988,,26687,Silent,3071683013179
+Japan,1988,female,55-74 years,2853,11962000,23.85,Japan1988,,26687,G.I. Generation,3071683013179
+Japan,1988,male,25-34 years,1736,7938000,21.87,Japan1988,,26687,Boomers,3071683013179
+Japan,1988,female,35-54 years,2438,18354000,13.28,Japan1988,,26687,Silent,3071683013179
+Japan,1988,male,15-24 years,973,9391000,10.36,Japan1988,,26687,Generation X,3071683013179
+Japan,1988,female,25-34 years,721,7769000,9.28,Japan1988,,26687,Boomers,3071683013179
+Japan,1988,female,15-24 years,583,8959000,6.51,Japan1988,,26687,Generation X,3071683013179
+Japan,1988,male,5-14 years,49,8669000,0.57,Japan1988,,26687,Generation X,3071683013179
+Japan,1988,female,5-14 years,30,8248000,0.36,Japan1988,,26687,Generation X,3071683013179
+Japan,1989,male,75+ years,1463,2153000,67.95,Japan1989,,26389,G.I. Generation,3054914166263
+Japan,1989,female,75+ years,1844,3577000,51.55,Japan1989,,26389,G.I. Generation,3054914166263
+Japan,1989,male,55-74 years,3676,10384000,35.4,Japan1989,,26389,G.I. Generation,3054914166263
+Japan,1989,male,35-54 years,5161,18310000,28.19,Japan1989,,26389,Silent,3054914166263
+Japan,1989,female,55-74 years,2786,12244000,22.75,Japan1989,,26389,G.I. Generation,3054914166263
+Japan,1989,male,25-34 years,1582,7931000,19.95,Japan1989,,26389,Boomers,3054914166263
+Japan,1989,female,35-54 years,2306,18362000,12.56,Japan1989,,26389,Silent,3054914166263
+Japan,1989,male,15-24 years,928,9573000,9.69,Japan1989,,26389,Generation X,3054914166263
+Japan,1989,female,25-34 years,725,7749000,9.36,Japan1989,,26389,Boomers,3054914166263
+Japan,1989,female,15-24 years,479,9119000,5.25,Japan1989,,26389,Generation X,3054914166263
+Japan,1989,male,5-14 years,36,8384000,0.43,Japan1989,,26389,Generation X,3054914166263
+Japan,1989,female,5-14 years,27,7980000,0.34,Japan1989,,26389,Generation X,3054914166263
+Japan,1991,male,75+ years,1354,2311000,58.59,Japan1991,0.821,30688,G.I. Generation,3584420077101
+Japan,1991,female,75+ years,1687,3912000,43.12,Japan1991,0.821,30688,G.I. Generation,3584420077101
+Japan,1991,male,55-74 years,3779,11126000,33.97,Japan1991,0.821,30688,Silent,3584420077101
+Japan,1991,male,35-54 years,4935,18230000,27.07,Japan1991,0.821,30688,Boomers,3584420077101
+Japan,1991,female,55-74 years,2561,12912000,19.83,Japan1991,0.821,30688,Silent,3584420077101
+Japan,1991,male,25-34 years,1419,7830000,18.12,Japan1991,0.821,30688,Boomers,3584420077101
+Japan,1991,female,35-54 years,2039,18245000,11.18,Japan1991,0.821,30688,Boomers,3584420077101
+Japan,1991,male,15-24 years,891,9770000,9.12,Japan1991,0.821,30688,Generation X,3584420077101
+Japan,1991,female,25-34 years,637,7665000,8.31,Japan1991,0.821,30688,Boomers,3584420077101
+Japan,1991,female,15-24 years,442,9337000,4.73,Japan1991,0.821,30688,Generation X,3584420077101
+Japan,1991,male,5-14 years,22,7928000,0.28,Japan1991,0.821,30688,Millenials,3584420077101
+Japan,1991,female,5-14 years,14,7536000,0.19,Japan1991,0.821,30688,Millenials,3584420077101
+Japan,1992,male,75+ years,1423,2375000,59.92,Japan1992,0.8240000000000001,33320,G.I. Generation,3908809463464
+Japan,1992,female,75+ years,1702,4072000,41.8,Japan1992,0.8240000000000001,33320,G.I. Generation,3908809463464
+Japan,1992,male,55-74 years,4155,11475000,36.21,Japan1992,0.8240000000000001,33320,Silent,3908809463464
+Japan,1992,male,35-54 years,5269,18135000,29.05,Japan1992,0.8240000000000001,33320,Boomers,3908809463464
+Japan,1992,female,55-74 years,2555,13232000,19.31,Japan1992,0.8240000000000001,33320,Silent,3908809463464
+Japan,1992,male,25-34 years,1501,7985000,18.8,Japan1992,0.8240000000000001,33320,Boomers,3908809463464
+Japan,1992,female,35-54 years,1998,18131000,11.02,Japan1992,0.8240000000000001,33320,Boomers,3908809463464
+Japan,1992,male,15-24 years,996,9743000,10.22,Japan1992,0.8240000000000001,33320,Generation X,3908809463464
+Japan,1992,female,25-34 years,633,7810000,8.1,Japan1992,0.8240000000000001,33320,Boomers,3908809463464
+Japan,1992,female,15-24 years,440,9292000,4.74,Japan1992,0.8240000000000001,33320,Generation X,3908809463464
+Japan,1992,male,5-14 years,52,7720000,0.67,Japan1992,0.8240000000000001,33320,Millenials,3908809463464
+Japan,1992,female,5-14 years,32,7341000,0.44,Japan1992,0.8240000000000001,33320,Millenials,3908809463464
+Japan,1993,male,75+ years,1258,2430000,51.77,Japan1993,0.8290000000000001,37832,G.I. Generation,4454143876947
+Japan,1993,female,75+ years,1566,4227000,37.05,Japan1993,0.8290000000000001,37832,G.I. Generation,4454143876947
+Japan,1993,male,55-74 years,4185,11787000,35.51,Japan1993,0.8290000000000001,37832,Silent,4454143876947
+Japan,1993,male,35-54 years,5472,18083000,30.26,Japan1993,0.8290000000000001,37832,Boomers,4454143876947
+Japan,1993,male,25-34 years,1473,8120000,18.14,Japan1993,0.8290000000000001,37832,Boomers,4454143876947
+Japan,1993,female,55-74 years,2418,13512000,17.9,Japan1993,0.8290000000000001,37832,Silent,4454143876947
+Japan,1993,female,35-54 years,1955,18064000,10.82,Japan1993,0.8290000000000001,37832,Boomers,4454143876947
+Japan,1993,male,15-24 years,974,9691000,10.05,Japan1993,0.8290000000000001,37832,Generation X,4454143876947
+Japan,1993,female,25-34 years,598,7933000,7.54,Japan1993,0.8290000000000001,37832,Boomers,4454143876947
+Japan,1993,female,15-24 years,404,9233000,4.38,Japan1993,0.8290000000000001,37832,Generation X,4454143876947
+Japan,1993,male,5-14 years,32,7513000,0.43,Japan1993,0.8290000000000001,37832,Millenials,4454143876947
+Japan,1993,female,5-14 years,18,7142000,0.25,Japan1993,0.8290000000000001,37832,Millenials,4454143876947
+Japan,1994,male,75+ years,1364,2476000,55.09,Japan1994,0.835,41563,G.I. Generation,4907039384470
+Japan,1994,male,55-74 years,4256,12046000,35.33,Japan1994,0.835,41563,Silent,4907039384470
+Japan,1994,female,75+ years,1538,4368000,35.21,Japan1994,0.835,41563,G.I. Generation,4907039384470
+Japan,1994,male,35-54 years,5439,18084000,30.08,Japan1994,0.835,41563,Boomers,4907039384470
+Japan,1994,male,25-34 years,1631,8250000,19.77,Japan1994,0.835,41563,Boomers,4907039384470
+Japan,1994,female,55-74 years,2314,13742000,16.84,Japan1994,0.835,41563,Silent,4907039384470
+Japan,1994,male,15-24 years,1147,9582000,11.97,Japan1994,0.835,41563,Generation X,4907039384470
+Japan,1994,female,35-54 years,1846,18077000,10.21,Japan1994,0.835,41563,Boomers,4907039384470
+Japan,1994,female,25-34 years,670,8050000,8.32,Japan1994,0.835,41563,Boomers,4907039384470
+Japan,1994,female,15-24 years,463,9111000,5.08,Japan1994,0.835,41563,Generation X,4907039384470
+Japan,1994,male,5-14 years,55,7318000,0.75,Japan1994,0.835,41563,Millenials,4907039384470
+Japan,1994,female,5-14 years,21,6960000,0.3,Japan1994,0.835,41563,Millenials,4907039384470
+Japan,1996,male,75+ years,1339,2633000,50.85,Japan1996,0.845,40693,G.I. Generation,4833712542207
+Japan,1996,male,55-74 years,4870,12820000,37.99,Japan1996,0.845,40693,Silent,4833712542207
+Japan,1996,female,75+ years,1614,4812000,33.54,Japan1996,0.845,40693,G.I. Generation,4833712542207
+Japan,1996,male,35-54 years,5725,17896000,31.99,Japan1996,0.845,40693,Boomers,4833712542207
+Japan,1996,male,25-34 years,1690,8610000,19.63,Japan1996,0.845,40693,Generation X,4833712542207
+Japan,1996,female,55-74 years,2513,14347000,17.52,Japan1996,0.845,40693,Silent,4833712542207
+Japan,1996,male,15-24 years,1036,9147000,11.33,Japan1996,0.845,40693,Generation X,4833712542207
+Japan,1996,female,35-54 years,1944,17810000,10.92,Japan1996,0.845,40693,Boomers,4833712542207
+Japan,1996,female,25-34 years,698,8370000,8.34,Japan1996,0.845,40693,Generation X,4833712542207
+Japan,1996,female,15-24 years,474,8725000,5.43,Japan1996,0.845,40693,Generation X,4833712542207
+Japan,1996,male,5-14 years,41,6972000,0.59,Japan1996,0.845,40693,Millenials,4833712542207
+Japan,1996,female,5-14 years,23,6643000,0.35,Japan1996,0.845,40693,Millenials,4833712542207
+Japan,1997,male,75+ years,1429,2717000,52.59,Japan1997,0.848,37080,G.I. Generation,4414732843544
+Japan,1997,male,55-74 years,5435,13212000,41.14,Japan1997,0.848,37080,Silent,4414732843544
+Japan,1997,male,35-54 years,5984,17698000,33.81,Japan1997,0.848,37080,Boomers,4414732843544
+Japan,1997,female,75+ years,1674,5041000,33.21,Japan1997,0.848,37080,G.I. Generation,4414732843544
+Japan,1997,male,25-34 years,1813,8830000,20.53,Japan1997,0.848,37080,Generation X,4414732843544
+Japan,1997,female,55-74 years,2570,14670000,17.52,Japan1997,0.848,37080,Silent,4414732843544
+Japan,1997,female,35-54 years,2045,17605000,11.62,Japan1997,0.848,37080,Boomers,4414732843544
+Japan,1997,male,15-24 years,1011,8911000,11.35,Japan1997,0.848,37080,Generation X,4414732843544
+Japan,1997,female,25-34 years,798,8575000,9.31,Japan1997,0.848,37080,Generation X,4414732843544
+Japan,1997,female,15-24 years,468,8489000,5.51,Japan1997,0.848,37080,Generation X,4414732843544
+Japan,1997,male,5-14 years,34,6818000,0.5,Japan1997,0.848,37080,Millenials,4414732843544
+Japan,1997,female,5-14 years,19,6494000,0.29,Japan1997,0.848,37080,Millenials,4414732843544
+Japan,1998,male,75+ years,1732,2823000,61.35,Japan1998,0.847,33791,G.I. Generation,4032509760873
+Japan,1998,male,55-74 years,7981,13546000,58.92,Japan1998,0.847,33791,Silent,4032509760873
+Japan,1998,male,35-54 years,8384,17557000,47.75,Japan1998,0.847,33791,Boomers,4032509760873
+Japan,1998,female,75+ years,2013,5285000,38.09,Japan1998,0.847,33791,G.I. Generation,4032509760873
+Japan,1998,male,25-34 years,2462,9051000,27.2,Japan1998,0.847,33791,Generation X,4032509760873
+Japan,1998,female,55-74 years,3292,14950000,22.02,Japan1998,0.847,33791,Silent,4032509760873
+Japan,1998,male,15-24 years,1453,8649000,16.8,Japan1998,0.847,33791,Generation X,4032509760873
+Japan,1998,female,35-54 years,2385,17467000,13.65,Japan1998,0.847,33791,Boomers,4032509760873
+Japan,1998,female,25-34 years,1050,8787000,11.95,Japan1998,0.847,33791,Generation X,4032509760873
+Japan,1998,female,15-24 years,612,8231000,7.44,Japan1998,0.847,33791,Generation X,4032509760873
+Japan,1998,male,5-14 years,66,6655000,0.99,Japan1998,0.847,33791,Millenials,4032509760873
+Japan,1998,female,5-14 years,28,6337000,0.44,Japan1998,0.847,33791,Millenials,4032509760873
+Japan,1999,male,75+ years,1794,2954000,60.73,Japan1999,0.85,38164,G.I. Generation,4562078822335
+Japan,1999,male,55-74 years,7971,13851000,57.55,Japan1999,0.85,38164,Silent,4562078822335
+Japan,1999,male,35-54 years,8340,17403000,47.92,Japan1999,0.85,38164,Boomers,4562078822335
+Japan,1999,female,75+ years,1881,5516000,34.1,Japan1999,0.85,38164,G.I. Generation,4562078822335
+Japan,1999,male,25-34 years,2595,9242000,28.08,Japan1999,0.85,38164,Generation X,4562078822335
+Japan,1999,female,55-74 years,3146,15244000,20.64,Japan1999,0.85,38164,Silent,4562078822335
+Japan,1999,male,15-24 years,1385,8383000,16.52,Japan1999,0.85,38164,Generation X,4562078822335
+Japan,1999,female,35-54 years,2313,17316000,13.36,Japan1999,0.85,38164,Boomers,4562078822335
+Japan,1999,female,25-34 years,1036,8959000,11.56,Japan1999,0.85,38164,Generation X,4562078822335
+Japan,1999,female,15-24 years,581,7974000,7.29,Japan1999,0.85,38164,Generation X,4562078822335
+Japan,1999,male,5-14 years,44,6505000,0.68,Japan1999,0.85,38164,Millenials,4562078822335
+Japan,1999,female,5-14 years,29,6193000,0.47,Japan1999,0.85,38164,Millenials,4562078822335
+Japan,2001,male,55-74 years,7690,14064000,54.68,Japan2001,0.8590000000000001,35843,Silent,4303544259843
+Japan,2001,male,75+ years,1692,3404000,49.71,Japan2001,0.8590000000000001,35843,Silent,4303544259843
+Japan,2001,male,35-54 years,7913,17516000,45.18,Japan2001,0.8590000000000001,35843,Boomers,4303544259843
+Japan,2001,female,75+ years,1689,6095000,27.71,Japan2001,0.8590000000000001,35843,Silent,4303544259843
+Japan,2001,male,25-34 years,2388,9466000,25.23,Japan2001,0.8590000000000001,35843,Generation X,4303544259843
+Japan,2001,female,55-74 years,2870,15379000,18.66,Japan2001,0.8590000000000001,35843,Silent,4303544259843
+Japan,2001,male,15-24 years,1146,7856000,14.59,Japan2001,0.8590000000000001,35843,Millenials,4303544259843
+Japan,2001,female,35-54 years,2148,17363000,12.37,Japan2001,0.8590000000000001,35843,Boomers,4303544259843
+Japan,2001,female,25-34 years,1013,9178000,11.04,Japan2001,0.8590000000000001,35843,Generation X,4303544259843
+Japan,2001,female,15-24 years,522,7460000,7.0,Japan2001,0.8590000000000001,35843,Millenials,4303544259843
+Japan,2001,male,5-14 years,39,6295000,0.62,Japan2001,0.8590000000000001,35843,Millenials,4303544259843
+Japan,2001,female,5-14 years,22,5990000,0.37,Japan2001,0.8590000000000001,35843,Millenials,4303544259843
+Japan,2002,male,55-74 years,7956,14446000,55.07,Japan2002,0.862,34239,Silent,4115116279070
+Japan,2002,male,35-54 years,8202,17249000,47.55,Japan2002,0.862,34239,Boomers,4115116279070
+Japan,2002,male,75+ years,1709,3621000,47.2,Japan2002,0.862,34239,Silent,4115116279070
+Japan,2002,female,75+ years,1664,6387000,26.05,Japan2002,0.862,34239,Silent,4115116279070
+Japan,2002,male,25-34 years,2444,9406000,25.98,Japan2002,0.862,34239,Generation X,4115116279070
+Japan,2002,female,55-74 years,2919,15754000,18.53,Japan2002,0.862,34239,Silent,4115116279070
+Japan,2002,male,15-24 years,1131,7671000,14.74,Japan2002,0.862,34239,Millenials,4115116279070
+Japan,2002,female,35-54 years,2187,17125000,12.77,Japan2002,0.862,34239,Boomers,4115116279070
+Japan,2002,female,25-34 years,1005,9124000,11.01,Japan2002,0.862,34239,Generation X,4115116279070
+Japan,2002,female,15-24 years,461,7274000,6.34,Japan2002,0.862,34239,Millenials,4115116279070
+Japan,2002,male,5-14 years,25,6215000,0.4,Japan2002,0.862,34239,Millenials,4115116279070
+Japan,2002,female,5-14 years,12,5917000,0.2,Japan2002,0.862,34239,Millenials,4115116279070
+Japan,2003,male,55-74 years,8409,14889000,56.48,Japan2003,0.865,36926,Silent,4445658071222
+Japan,2003,male,35-54 years,8948,16966000,52.74,Japan2003,0.865,36926,Boomers,4445658071222
+Japan,2003,male,75+ years,1733,3835000,45.19,Japan2003,0.865,36926,Silent,4445658071222
+Japan,2003,male,25-34 years,2910,9349000,31.13,Japan2003,0.865,36926,Generation X,4445658071222
+Japan,2003,female,75+ years,1643,6676000,24.61,Japan2003,0.865,36926,Silent,4445658071222
+Japan,2003,female,55-74 years,3100,16200000,19.14,Japan2003,0.865,36926,Silent,4445658071222
+Japan,2003,male,15-24 years,1158,7483000,15.48,Japan2003,0.865,36926,Millenials,4445658071222
+Japan,2003,female,35-54 years,2227,16840000,13.22,Japan2003,0.865,36926,Boomers,4445658071222
+Japan,2003,female,25-34 years,1132,9059000,12.5,Japan2003,0.865,36926,Generation X,4445658071222
+Japan,2003,female,15-24 years,556,7089000,7.84,Japan2003,0.865,36926,Millenials,4445658071222
+Japan,2003,female,5-14 years,33,5858000,0.56,Japan2003,0.865,36926,Millenials,4445658071222
+Japan,2003,male,5-14 years,32,6151000,0.52,Japan2003,0.865,36926,Millenials,4445658071222
+Japan,2004,male,55-74 years,7895,15316000,51.55,Japan2004,0.8690000000000001,39960,Silent,4815148854362
+Japan,2004,male,35-54 years,8056,16685000,48.28,Japan2004,0.8690000000000001,39960,Boomers,4815148854362
+Japan,2004,male,75+ years,1876,4056000,46.25,Japan2004,0.8690000000000001,39960,Silent,4815148854362
+Japan,2004,male,25-34 years,2677,9241000,28.97,Japan2004,0.8690000000000001,39960,Generation X,4815148854362
+Japan,2004,female,75+ years,1595,6977000,22.86,Japan2004,0.8690000000000001,39960,Silent,4815148854362
+Japan,2004,female,55-74 years,2941,16631000,17.68,Japan2004,0.8690000000000001,39960,Silent,4815148854362
+Japan,2004,male,15-24 years,1233,7289000,16.92,Japan2004,0.8690000000000001,39960,Millenials,4815148854362
+Japan,2004,female,35-54 years,2045,16564000,12.35,Japan2004,0.8690000000000001,39960,Boomers,4815148854362
+Japan,2004,female,25-34 years,1088,8932000,12.18,Japan2004,0.8690000000000001,39960,Generation X,4815148854362
+Japan,2004,female,15-24 years,579,6905000,8.39,Japan2004,0.8690000000000001,39960,Millenials,4815148854362
+Japan,2004,male,5-14 years,27,6097000,0.44,Japan2004,0.8690000000000001,39960,Millenials,4815148854362
+Japan,2004,female,5-14 years,22,5807000,0.38,Japan2004,0.8690000000000001,39960,Millenials,4815148854362
+Japan,2006,male,55-74 years,7921,16002000,49.5,Japan2006,0.877,37534,Silent,4530377224970
+Japan,2006,male,35-54 years,7436,16519000,45.01,Japan2006,0.877,37534,Boomers,4530377224970
+Japan,2006,male,75+ years,1945,4512000,43.11,Japan2006,0.877,37534,Silent,4530377224970
+Japan,2006,male,25-34 years,2667,8758000,30.45,Japan2006,0.877,37534,Generation X,4530377224970
+Japan,2006,female,75+ years,1639,7608000,21.54,Japan2006,0.877,37534,Silent,4530377224970
+Japan,2006,male,15-24 years,1257,6916000,18.18,Japan2006,0.877,37534,Millenials,4530377224970
+Japan,2006,female,55-74 years,2866,17213000,16.65,Japan2006,0.877,37534,Silent,4530377224970
+Japan,2006,female,35-54 years,2193,16320000,13.44,Japan2006,0.877,37534,Boomers,4530377224970
+Japan,2006,female,25-34 years,1133,8473000,13.37,Japan2006,0.877,37534,Generation X,4530377224970
+Japan,2006,female,15-24 years,635,6548000,9.7,Japan2006,0.877,37534,Millenials,4530377224970
+Japan,2006,male,5-14 years,57,6066000,0.94,Japan2006,0.877,37534,Millenials,4530377224970
+Japan,2006,female,5-14 years,20,5767000,0.35,Japan2006,0.877,37534,Millenials,4530377224970
+Japan,2007,male,55-74 years,8184,16130000,50.74,Japan2007,0.88,37408,Silent,4515264514431
+Japan,2007,male,75+ years,2205,4744000,46.48,Japan2007,0.88,37408,Silent,4515264514431
+Japan,2007,male,35-54 years,7599,16557000,45.9,Japan2007,0.88,37408,Boomers,4515264514431
+Japan,2007,male,25-34 years,2596,8501000,30.54,Japan2007,0.88,37408,Generation X,4515264514431
+Japan,2007,female,75+ years,1691,7913000,21.37,Japan2007,0.88,37408,Silent,4515264514431
+Japan,2007,male,15-24 years,1252,6795000,18.43,Japan2007,0.88,37408,Millenials,4515264514431
+Japan,2007,female,55-74 years,3108,17338000,17.93,Japan2007,0.88,37408,Silent,4515264514431
+Japan,2007,female,35-54 years,2303,16325000,14.11,Japan2007,0.88,37408,Boomers,4515264514431
+Japan,2007,female,25-34 years,1084,8212000,13.2,Japan2007,0.88,37408,Generation X,4515264514431
+Japan,2007,female,15-24 years,596,6430000,9.27,Japan2007,0.88,37408,Millenials,4515264514431
+Japan,2007,male,5-14 years,31,6027000,0.51,Japan2007,0.88,37408,Generation Z,4515264514431
+Japan,2007,female,5-14 years,16,5732000,0.28,Japan2007,0.88,37408,Generation Z,4515264514431
+Japan,2008,male,55-74 years,7894,16197000,48.74,Japan2008,0.8809999999999999,41773,Silent,5037908465114
+Japan,2008,male,35-54 years,7344,16657000,44.09,Japan2008,0.8809999999999999,41773,Boomers,5037908465114
+Japan,2008,male,75+ years,2132,4965000,42.94,Japan2008,0.8809999999999999,41773,Silent,5037908465114
+Japan,2008,male,25-34 years,2651,8234000,32.2,Japan2008,0.8809999999999999,41773,Generation X,5037908465114
+Japan,2008,female,75+ years,1673,8207000,20.39,Japan2008,0.8809999999999999,41773,Silent,5037908465114
+Japan,2008,male,15-24 years,1343,6650000,20.2,Japan2008,0.8809999999999999,41773,Millenials,5037908465114
+Japan,2008,female,55-74 years,2885,17395000,16.59,Japan2008,0.8809999999999999,41773,Silent,5037908465114
+Japan,2008,female,25-34 years,1203,7933000,15.16,Japan2008,0.8809999999999999,41773,Generation X,5037908465114
+Japan,2008,female,35-54 years,2237,16400000,13.64,Japan2008,0.8809999999999999,41773,Boomers,5037908465114
+Japan,2008,female,15-24 years,652,6293000,10.36,Japan2008,0.8809999999999999,41773,Millenials,5037908465114
+Japan,2008,male,5-14 years,41,5982000,0.69,Japan2008,0.8809999999999999,41773,Generation Z,5037908465114
+Japan,2008,female,5-14 years,18,5689000,0.32,Japan2008,0.8809999999999999,41773,Generation Z,5037908465114
+Japan,2009,male,55-74 years,7983,16224000,49.2,Japan2009,0.88,43415,Silent,5231382674594
+Japan,2009,male,35-54 years,7799,16796000,46.43,Japan2009,0.88,43415,Boomers,5231382674594
+Japan,2009,male,75+ years,2216,5174000,42.83,Japan2009,0.88,43415,Silent,5231382674594
+Japan,2009,male,25-34 years,2657,7987000,33.27,Japan2009,0.88,43415,Generation X,5231382674594
+Japan,2009,male,15-24 years,1326,6514000,20.36,Japan2009,0.88,43415,Millenials,5231382674594
+Japan,2009,female,75+ years,1649,8488000,19.43,Japan2009,0.88,43415,Silent,5231382674594
+Japan,2009,female,55-74 years,2820,17413000,16.19,Japan2009,0.88,43415,Silent,5231382674594
+Japan,2009,female,25-34 years,1085,7679000,14.13,Japan2009,0.88,43415,Generation X,5231382674594
+Japan,2009,female,35-54 years,2328,16517000,14.09,Japan2009,0.88,43415,Boomers,5231382674594
+Japan,2009,female,15-24 years,605,6163000,9.82,Japan2009,0.88,43415,Millenials,5231382674594
+Japan,2009,male,5-14 years,34,5914000,0.57,Japan2009,0.88,43415,Generation Z,5231382674594
+Japan,2009,female,5-14 years,21,5627000,0.37,Japan2009,0.88,43415,Generation Z,5231382674594
+Japan,2015,male,75+ years,2297,6289365,36.52,Japan2015,0.905,36510,Silent,4394977752878
+Japan,2015,male,55-74 years,5241,16239222,32.27,Japan2015,0.905,36510,Boomers,4394977752878
+Japan,2015,male,35-54 years,5507,17461022,31.54,Japan2015,0.905,36510,Generation X,4394977752878
+Japan,2015,male,25-34 years,1948,6862886,28.38,Japan2015,0.905,36510,Millenials,4394977752878
+Japan,2015,male,15-24 years,1091,6088330,17.92,Japan2015,0.905,36510,Millenials,4394977752878
+Japan,2015,female,75+ years,1509,9983066,15.12,Japan2015,0.905,36510,Silent,4394977752878
+Japan,2015,female,55-74 years,2292,17232482,13.3,Japan2015,0.905,36510,Boomers,4394977752878
+Japan,2015,female,35-54 years,2024,16991218,11.91,Japan2015,0.905,36510,Generation X,4394977752878
+Japan,2015,female,25-34 years,685,6614211,10.36,Japan2015,0.905,36510,Millenials,4394977752878
+Japan,2015,female,15-24 years,408,5772938,7.07,Japan2015,0.905,36510,Millenials,4394977752878
+Japan,2015,male,5-14 years,62,5553851,1.12,Japan2015,0.905,36510,Generation Z,4394977752878
+Japan,2015,female,5-14 years,28,5287719,0.53,Japan2015,0.905,36510,Generation Z,4394977752878
